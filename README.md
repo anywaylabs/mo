@@ -1,1 +1,3 @@
-# Hybrid mobile app framework with generators
+## mo 🐍 framework
+
+#### Hybrid mobile app framework with generators
