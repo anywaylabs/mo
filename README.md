@@ -8,6 +8,7 @@ Run commands:
 npm i mo-framework -g
 mo new app
 cd app
+npm i
 mo serve
 ```
 then open http://192.168.x.x:7777 on your mobile or desktop browser.
