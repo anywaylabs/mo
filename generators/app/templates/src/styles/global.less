@@ -1,0 +1,202 @@
+@import 'tools';
+
+*, *:before, *:after {
+    .box-sizing(border-box);
+}
+
+* {
+    outline: none;
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background: white;
+    font-weight: 300;
+    font-family: @font-family-base;
+    line-height: @line-height-base;
+    color: @text-color;
+
+    pointer-events: auto;
+
+    &.hidden {
+        background: white;
+        pointer-events: none;
+        /* @devnote Bug in mobile safari, no @pagechange event if visibility == hidden. */
+        /*visibility: hidden;*/
+    }
+
+    &.modal-opened {
+        overflow: hidden!important;
+    }
+}
+
+body.env-win {
+    font-family: @font-family-windows;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    color: @link-color;
+    text-decoration: none;
+
+    body.hoverable &:hover, &.hover {
+        color: @link-hover-color;
+        text-decoration: none;
+    }
+
+    &:focus {
+        .tab-focus();
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+textarea {
+    -webkit-user-select: auto !important;
+}
+
+input.ui-input-text, input[type=text], input[type=number], input[type=password] {
+    -webkit-user-select: auto;
+}
+
+body {
+    background-position: 0 0;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    background-size: 100% auto;
+
+    .ui-page {
+        height: 100%;
+        -webkit-overflow-scrolling: touch;
+
+        .main-holder {
+            // Всегда растягивать по высоте + ещё немного, чтобы включался scroll (для красоты).
+            min-height: 101%;
+
+            &.has-fixed-header {
+                min-height: initial;
+            }
+        }
+    }
+
+    &.stretchable-pages .ui-page {
+        overflow: hidden!important;
+        height: inherit;
+         &.no-stretch {
+            height: auto;
+        }
+    }
+
+    &.layout-blank {
+        .layouted.layout-blank {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    &.layout-main {
+        .layouted.layout-main {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    @media (min-width: 35em) {
+        &.layout-main {
+            background-position: -15em 0!important;
+
+            #main-panel {
+                visibility: visible;
+                width: 15em;
+                transform: none !important;
+                -webkit-transform: none !important;
+                transition: none 0s ease 0s !important;
+                -webkit-transition: none 0s ease 0s !important;
+            }
+
+            .ui-page {
+                padding-right: 15em;
+            }
+
+            .ui-panel-dismiss-display-overlay,
+            .ui-page-active ~ .ui-panel-dismiss-display-overlay {
+                display: none;
+            }
+
+            .menu-ico, .menu-toggle {
+                display: none!important;
+            }
+        }
+    }
+
+    &.skin-dark {
+        &:before {
+            background: rgba(48, 48, 48, 0.8);
+            content: "";
+            height: 100%;
+            position: fixed;
+            width: 100%;
+        }
+
+        .ui-page {
+            background: none!important;
+        }
+    }
+
+    &.skin-opaque {
+        background-image: none;
+        background-color: #C9C7C8;
+    }
+}
+
+.coming-soon, .display-none {
+    display: none!important;
+}
+
+.coming-soon-shown {
+    opacity: 0.5;
+    pointer-events: none;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+
+    // Apple does not allow such placeholders.
+    body.env-phonegap & {
+        display: none!important;
+    }
+}
+
+.layouted {
+    display: none;
+    opacity: 0;
+}
+
+.ui-page .header.fixed, .ui-page .footer.fixed {
+    display: none;
+
+    &.local-only {
+        display: block;
+    }
+}

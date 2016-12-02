@@ -1,0 +1,42 @@
+<section class='menu-doc'>
+    {{#if user.guest}}
+    <a href="#page-signIn">
+        <div class="profile-player-box clear">
+            <div class="pic-player avatar current big" style="background-image: url({{assets-dir}}img/no-avatar.jpg);"></div>
+            <div class="body-profile">
+                <p class="name-player">Guest mode</p>
+                <p class="status">Sign in</p>
+            </div>
+        </div>
+    </a>
+    {{else}}
+    <a href="#page-profile" data-params='{ "userId": {{user.id}} }'>
+        <div class="profile-player-box clear">
+            <div class="pic-player avatar current big" style="background-image: url({{user.image}});">
+            </div>
+            <div class="body-profile">
+                <p class="name-player">{{user.name}}</p>
+                <p class="status">{{user.helpers.status}}</p>
+            </div>
+        </div>
+    </a>
+    {{/if}}
+
+    <ul class="player-menu">
+        <li>
+            <a href="#page-signIn" class="link-menu">
+                <div class="icon-box"><i class="sign-in-ico"></i></div>
+                <div class="caption-item">Sign in</div>
+                <span class="pulse-ico blue"></span>
+            </a>
+        </li>
+        <li>
+            <a href="#page-start" class="link-menu">
+                <div class="icon-box"><i class="about-ico"></i></div>
+                <div class="caption-item">Start</div>
+                <span class="pulse-ico gray"></span>
+            </a>
+        </li>
+    </ul>
+    <div class="space100"></div>
+</section>

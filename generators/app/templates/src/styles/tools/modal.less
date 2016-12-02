@@ -1,0 +1,59 @@
+#modal {
+    display: none;
+    padding: 8px; 
+    overflow: auto;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @zindex-modal;
+    -webkit-overflow-scrolling: touch;
+
+    background-color: rgba(0, 0, 0, 0.65);
+
+    outline: 0;
+
+    // When fading in the modal, animate it to slide down
+    &.fade .modal-dialog {
+        .translate(0, -25%);
+        .transition-transform(~"0.3s ease-out");
+    }
+    &.in .modal-dialog { .translate(0, 0)}
+}
+
+.modal-close {
+    display: block;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .img-sprite();
+    background-position: -160px -284px;
+    .box-sizing(content-box);
+    border: 18px solid transparent;
+    background-origin: content-box;
+    background-clip: content-box;
+}
+
+// Scale up the modal
+@media (min-width: @screen-sm-min) {
+    // Automatically set modal's width for larger viewports
+    .modal-dialog {
+        width: @modal-md;
+        margin: 30px auto;
+    }
+    .modal-content {
+        .box-shadow(0 5px 15px rgba(0,0,0,.5));
+    }
+
+    // Modal sizes
+    .modal-sm { width: @modal-sm; }
+}
+
+@media (min-width: @screen-md-min) {
+    .modal-lg { width: @modal-lg; }
+}

@@ -1,0 +1,248 @@
+@import '~tools';
+
+#main-panel {
+    border: 0!important;
+    border-left: 1px solid #222222 !important;
+    background-color: rgba(35, 35, 35, 0.95);
+
+    @media (min-width: 35em) {
+        z-index: 1002;
+        .box-shadow(none);
+    }
+
+    body.status-bar-overlays-web-view & {
+        padding-top: 10px;
+    }
+
+    .menu-doc > a {
+        outline: none;
+    }
+
+    .profile-player-box {
+        padding: 15px;
+        overflow: hidden;
+    }
+
+    .pic-player {
+        float: left;
+        margin-right: 14px;
+        width: 65px;
+        height: 65px;
+        border-radius: 33px!important;
+        background-size: cover;
+
+        &:before {
+            border-radius: 33px!important;
+        }
+
+        &:after {
+            top: -10px;
+            left: -27px;
+        }
+    }
+
+    .body-profile {
+        overflow: hidden;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .name-player {
+        font-size: 18px;
+        color: #fff;
+        line-height: @headings-line-height;
+        margin-top: 5px !important;
+    }
+
+    .status {
+        font-size: 14px;
+        color: #a4a4a4;
+    }
+
+    .balance {
+        background: @brand-light-red;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: small;
+    }
+
+    .player-menu {
+        list-style: none;
+        margin: 0 0 50px;
+        padding: 0;
+
+        > li {
+            position: relative;
+
+            .link-menu {
+                display: block;
+                background: #454545;
+                color: #fff;
+                border-top: 1px solid #1C1C1C;
+                font-size: 18px;
+                line-height: 33px;
+                padding-right: 51px;
+                word-break: break-all;
+
+                body.hoverable &:hover, &.hover {
+                    background: #282828;
+                    color: #fff;
+                    outline: none;
+
+                    .icon-box {
+                        background: #1D1D1D;
+                    }
+
+                    .pulse-ico {
+                        &:after {
+                            .animation(1s ease-out infinite pulsate);
+                        }
+
+                        &.green:after { border-color: @brand-green; }
+                        &.lilac:after { border-color: @brand-lilac; }
+                        &.orange:after { border-color: @brand-orange; }
+                        &.light-blue:after { border-color: @brand-light-blue; }
+                        &.blue:after { border-color: @brand-blue; }
+                        &.light-green:after { border-color: @brand-light-green; }
+                        &.yellow:after { border-color: @brand-yellow; }
+                        &.gray:after { border-color: @brand-light-gray; }
+                        &.red:after { border-color: @brand-red; }
+                        &.pink:after { border-color: @brand-pink; }
+                    }
+                }
+            }
+
+            &.lastItem {
+                border-bottom: 1px solid #1C1C1C;
+            }
+        }
+
+        .caption-item {
+            display: table-cell;
+            vertical-align: middle;
+            max-width: 120px;
+            padding: 0 12px 0 12px;
+            .text-overflow();
+        }
+    }
+
+    .icon-box {
+        width: 65px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        height: 50px;
+        background: #3E3E3E;
+
+        i {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            .img-sprite();
+        }
+    }
+
+    .pulse-ico {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin-top: -5px;
+        border-radius: 5px;
+
+        &.green { background: @brand-green; }
+        &.lilac { background: @brand-lilac; }
+        &.orange { background: @brand-orange; }
+        &.light-blue { background: @brand-light-blue; }
+        &.blue { background: @brand-blue; }
+        &.light-green { background: @brand-light-green; }
+        &.yellow { background: @brand-yellow; }
+        &.gray { background: @brand-light-gray; }
+        &.red { background: @brand-red; }
+        &.green { background: @brand-green; }
+
+        &:after {
+            content: "";
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            height: 24px;
+            width: 24px;
+            margin: -12px 0 0 -12px;
+            top: 50%;
+            left: 50%;
+            opacity: 1;
+            position: absolute;
+        }
+
+        &.with-content {
+            width: 18px;
+            font-size: 12px;
+            text-align: center;
+            height: 18px;
+            line-height: 16px;
+            margin-top: -9px;
+            right: 16px;
+            white-space: nowrap;
+            font-weight: bold;
+            background: transparent;
+            border-radius: 10px;
+
+            &.light-green {
+                color: @brand-light-green;
+                border: 1px solid @brand-light-green;
+            }
+
+            &.green {
+                color: @brand-green;
+                border: 1px solid @brand-green;
+            }
+        }
+    }
+
+    @keyframes pulsate {
+        0% {
+            .opacity(0);
+            .scale(0.3,0.3);
+        }
+        50% {
+            .opacity(1);
+        }
+        100% {
+            .opacity(0);
+            .scale(1,1);
+        }
+    }
+
+    @-webkit-keyframes pulsate {
+        0% {
+            .opacity(0);
+            .scale(0.3,0.3);
+        }
+        50% {
+            .opacity(1);
+        }
+        100% {
+            .opacity(0);
+            .scale(1,1);
+        }
+    }
+
+    .sign-in-ico {
+        background-position: 0 -36px;
+        width: 36px;
+        height: 30px;
+    }
+
+    .about-ico {
+        background-position: -219px -31px;
+        width: 40px;
+        height: 32px;
+    }
+}
+

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>mo 🐍 framework</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="scroll.js"></script>
+</head>
+<body>
+<div id="iphone4" class="viewport">
+    <div id="iphone-mask">
+        <script type="text/javascript">
+            document.write('<iframe src="src/index.html' + location.search + '" width="320" height="460" frameborder="0"></iframe>');
+        </script>
+    </div>
+
+    <a href="#" onclick="localStorage.clear(); location.reload(true);">Reset local storage.</a>
+</div>
+</body>
+</html>

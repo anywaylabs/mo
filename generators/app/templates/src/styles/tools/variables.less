@@ -1,0 +1,152 @@
+//
+// Variables
+// --------------------------------------------------
+
+//== Colors
+//
+@brand-primary: #8D8D8D;
+@brand-gray: lighten(#000, 33.5%);
+@brand-light-gray: lighten(@brand-gray, 33.5%);
+@brand-light-green: #8EBA26;
+@brand-green: #30A632;
+@brand-light-red: #EB6153;
+@brand-red: #E33536;
+@brand-dark-red: #C7180E;
+@brand-light-blue: #1DB5C5;
+@brand-blue: #2B5EC6;
+@brand-aqua: #619AAA;
+@brand-orange: #F5A623;
+@brand-lilac: #A740C9;
+@brand-yellow: #FFFE99;
+@brand-pink: #FFB3B3;
+
+//== Scaffolding
+//
+// ## Settings for some of the most global styles.
+
+//** Global text color on `<body>`.
+@text-color: @brand-gray;
+//** Global textual link color.
+@link-color: @brand-primary;
+//** Link hover color set via `darken()` function.
+@link-hover-color: darken(@link-color, 15%);
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@font-family-sans-serif: Helvetica, Helvetica Neue, "OpenSans_Regular", Arial, "Lucida Grande", sans-serif;
+@font-family-windows: "OpenSans_Regular", Arial, "Lucida Grande", sans-serif;
+@font-family-serif: Georgia, "Times New Roman", Times, serif;
+@font-family-base: @font-family-sans-serif;
+@font-size-base: 100%;
+@font-size-large: ceil((@font-size-base * 1.25));
+// ~18px
+@font-size-small: ceil((@font-size-base * 0.85));
+// ~12px
+@font-size-h1: floor((@font-size-base * 2.6));
+// ~36px
+@font-size-h2: floor((@font-size-base * 2.15));
+// ~30px
+@font-size-h3: ceil((@font-size-base * 1.7));
+// ~24px
+@font-size-h4: ceil((@font-size-base * 1.25));
+// ~18px
+@font-size-h5: @font-size-base;
+@font-size-h6: ceil((@font-size-base * 0.85));
+// ~12px
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base: 1.428571429;
+// 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed: floor((@font-size-base * @line-height-base));
+// ~20px
+
+//** By default, this inherits from the `<body>`.
+@headings-font-family: inherit;
+@headings-font-weight: 500;
+@headings-line-height: 1.1;
+@headings-color: inherit;
+
+//== Components
+//
+@padding-base-vertical: 6px;
+@padding-base-horizontal: 12px;
+
+@padding-large-vertical: 10px;
+@padding-large-horizontal: 16px;
+
+@padding-small-vertical: 5px;
+@padding-small-horizontal: 10px;
+
+@padding-xs-vertical: 1px;
+@padding-xs-horizontal: 5px;
+
+@line-height-large: 1.33;
+@line-height-small: 1.5;
+
+@border-radius-base: 2px;
+@border-radius-large: 6px;
+@border-radius-small: 3px;
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+// Note: These variables are not generated into the Customizer.
+
+@zindex-navbar: 1000;
+@zindex-dropdown: 1000;
+@zindex-popover: 1010;
+@zindex-tooltip: 1030;
+@zindex-navbar-fixed: 1030;
+@zindex-modal-background: 1040;
+@zindex-modal: 1050;
+
+// Small screen / tablet
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+// Medium screen / desktop
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+// Large screen / wide desktop
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+//== Grid system
+//
+@grid-gutter-width: 14px;
+
+//== Modals
+//
+//** Padding applied to the modal body
+@modal-inner-padding: 20px;
+
+//** Padding applied to the modal title
+@modal-title-padding: 15px;
+//** Modal title line-height
+@modal-title-line-height: @line-height-base;
+
+//** Background color of modal content area
+@modal-content-bg: #fff;
+//** Modal content border color
+@modal-content-border-color: rgba(0, 0, 0, .2);
+//** Modal content border color **for IE8**
+@modal-content-fallback-border-color: #999;
+
+//** Modal backdrop background color
+@modal-backdrop-bg: #000;
+//** Modal backdrop opacity
+@modal-backdrop-opacity: .7;
+//** Modal header border color
+@modal-header-border-color: #e5e5e5;
+//** Modal footer border color
+@modal-footer-border-color: @modal-header-border-color;
+
+@modal-lg: 900px;
+@modal-md: 600px;
+@modal-sm: 300px;
+
+@header-height: 44px;
+@status-bar-height-ios: 20px;
+@status-bar-height-android: 25px;

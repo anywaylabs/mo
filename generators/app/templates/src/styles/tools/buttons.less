@@ -1,0 +1,108 @@
+.btn {
+    display: block;
+    margin-bottom: 0; // For input.btn
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    white-space: nowrap;
+    background: #808080;
+    color: #fff;
+    font-size: 17px;
+    line-height: 30px;
+    border-radius: @border-radius-base;
+    border: 2px solid transparent;
+    border-color: #808080;
+    .user-select(none);
+
+    body.hoverable &:hover, &.hover {
+        color: #808080;
+        background-color: transparent;
+    }
+
+    &.small {
+        display: inline-block;
+        line-height: 25px;
+        text-align: center;
+        min-width: 70px;
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    &.green {
+        background: @brand-light-green;
+        border-color: @brand-light-green;
+
+        body.hoverable &:hover, &.hover {
+            color: @brand-light-green;
+            background-color: transparent;
+        }
+    }
+
+    &.blue {
+        background: @brand-light-blue;
+        border-color: @brand-light-blue;
+
+        body.hoverable &:hover, &.hover {
+            color: @brand-light-blue;
+            background-color: transparent;
+        }
+    }
+
+    &.red {
+        background: @brand-light-red;
+        border-color: @brand-light-red;
+
+        body.hoverable &:hover, &.hover {
+            color: @brand-light-red;
+            background-color: transparent;
+        }
+    }
+
+    &.orange {
+        background: @brand-orange;
+        border-color: @brand-orange;
+
+        body.hoverable &:hover, &.hover {
+            color: @brand-orange;
+            background-color: transparent;
+        }
+    }
+
+    &.invite {
+        margin: @grid-gutter-width * 2;
+        margin-top: 0;
+    }
+
+    &.share {
+        font-size: 14px;
+
+        &:after {
+            content: '';
+            display: inline-block;
+            position: relative;
+            top: 6px;
+            left: 12px;
+            width: 19px;
+            height: 24px;
+            .img-sprite();
+            background-position: -49px -197px;
+        }
+
+        body.hoverable &:hover, &.hover {
+            color: @brand-light-blue;
+            background-color: #424243;
+
+            &:after {
+                background-position: -70px -197px;
+            }
+        }
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+    }
+}

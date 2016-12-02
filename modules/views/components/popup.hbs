@@ -1,0 +1,11 @@
+<div class="picker {{pickerType}}"></div>
+<div class="inner">
+    <span class="content">{{{content}}}</span>
+{{#if buttons}}
+    <div class="tools">
+    {{#each buttons}}
+        <a href="{{href}}" class="btn small {{className}}">{{text}}</a>
+    {{/each}}
+    </div>
+{{/if}}
+</div>

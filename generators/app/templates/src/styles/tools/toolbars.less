@@ -1,0 +1,250 @@
+.has-fixed-header {
+    padding-top: @header-height;
+}
+
+.header {
+    padding: 5px 0 5px 0;
+    min-height: @header-height;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+
+    h2 {
+        margin: -5px 45px;
+        font-size: 24px;
+        line-height: 40px;
+        color: #fff;
+        .text-overflow();
+
+        &.small {
+            font-size: 20px;
+            line-height: 44px;
+        }
+    }
+
+    .back-ico {
+        display: inline-block;
+        position: absolute;
+        left: 7px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        &:after {
+            content: "";
+            position: absolute;
+            height: 26px;
+            width: 26px;
+            left: 7px;
+            top: 2px;
+            background: transparent!important;
+            .img-sprite();
+            background-position: -70px -224px!important;
+        }
+    }
+
+    .back-skin-light {
+        &:after {
+            width: 11px;
+            left: 14px;
+            background-position: -213px 2px!important;
+        }
+    }
+
+    .menu-ico {
+        display: inline-block;
+        position: absolute;
+        top: 5px;
+        right: 14px;
+        float: right;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        &:after {
+            content: "";
+            position: absolute;
+            height: 30px;
+            width: 28px;
+            right: 0;
+            top: 2px;
+            background: transparent!important;
+            .img-sprite();
+            background-position: -197px -251px!important;
+        }
+    }
+
+    .menu-skin-light {
+        &:after {
+            background-position: -230px -251px!important;
+        }
+    }
+
+    .bar {
+        font-size: 0;
+        display: inline-table;
+        line-height: 10px;
+        height: 28px;
+        cursor: pointer;
+        color: white;
+        border: 2px solid #fff;
+        border-radius: 2px;
+
+        a {
+            color: white;
+            display: inline-block;
+            vertical-align: middle;
+
+            body.hoverable &:hover, &.hover {
+                color: white;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        li {
+            font-size: 12px;
+            display: table-cell;
+            vertical-align: middle;
+            width: 70px;
+            height: 24px;
+        }
+
+        .bar_active {
+            a {
+                color: #595959;
+                
+                body.hoverable &:hover, &.hover {
+                    color: #595959;
+                }
+            }
+
+            color: #595959;
+            background: white;
+        }
+    }
+
+    &.red {
+        background: @brand-light-red;
+
+        h2 {
+            color: white;
+        }
+    }
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        height: @header-height;
+        opacity: 1;
+        .translate3d(0, 0, 0);
+
+        @media (min-width: 35em) {
+            width: calc(~"100% - 15em");
+        }
+
+        &.hidden {
+            .translate3d(0, -@header-height, 0);
+            opacity: 0.3;
+        }
+
+        .transition-transform(~"300ms, opacity 300ms");
+    }
+
+    &.inline {
+        margin-top: 5px;
+    }
+}
+
+body.status-bar-overlays-web-view.env-ios {
+    .has-fixed-header {
+        padding-top: @header-height + @status-bar-height-ios;
+    }
+
+    .header {
+        min-height: @header-height + @status-bar-height-ios!important;
+        padding-top: 5px + @status-bar-height-ios!important;
+
+        .menu-ico {
+            top: 5px + @status-bar-height-ios!important;
+        }
+
+        &.inline {
+            min-height: @header-height!important;
+            padding-top: 5px!important;
+        }
+
+        &.hidden {
+            .translate3d(0, (-1 * (@header-height + @status-bar-height-ios)), 0)!important;
+        }
+    }
+}
+
+body.status-bar-overlays-web-view.env-android {
+    .has-fixed-header {
+        padding-top: @header-height + @status-bar-height-android;
+    }
+
+    .header {
+        min-height: @header-height + @status-bar-height-android!important;
+        padding-top: 5px + @status-bar-height-android!important;
+
+        .menu-ico {
+            top: 5px + @status-bar-height-android!important;
+        }
+
+        &.inline {
+            min-height: @header-height!important;
+            padding-top: 5px!important;
+        }
+
+        &.hidden {
+            .translate3d(0, (-1 * (@header-height + @status-bar-height-android)), 0)!important;
+        }
+    }
+}
+
+.footer.fixed {
+    height: 50px;
+    width: 100%;
+    background: rgba(0, 0, 0, .8);
+    position: fixed;
+    bottom: 0;
+    padding-top: .4em;
+    line-height: .9em;
+    z-index: 1;
+    .translate3d(0, 0, 0);
+
+    @media (min-width: 35em) {
+        & {
+            padding-right: 15em;
+        }
+    }
+
+    &.hidden {
+        .translate3d(0, 50px, 0);
+        opacity: 0.3;
+    }
+
+    .transition-transform(~"300ms, opacity 300ms");
+
+    a {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        width: 49%;
+        text-align: center;
+        font-size: 12px;
+        color: #7f7f7f;
+
+        .ico {
+            content: '';
+            width: 28px;
+            height: 24px;
+            display: inline-block;
+            .img-sprite();
+        }
+    }
+}

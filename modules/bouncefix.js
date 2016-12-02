@@ -1,0 +1,1 @@
+module.exports = require('./vendor/js/bouncefix-0.3.0');

@@ -1,0 +1,77 @@
+.ui-page {
+    overflow-y: scroll!important;
+    overflow-x: hidden!important;
+}
+
+.ui-mobile-viewport-transitioning {
+    .ui-loader {
+        display: none;
+    }
+}
+
+.ui-loader {
+    text-align: center;
+    opacity: 0.3!important;
+}
+
+.ui-icon-loading {
+    display: inline-block!important;
+    background-size: 24px!important;
+    background-repeat: no-repeat!important;
+    background-position: center!important;
+    background-image: url('../../img/load-spinner-2.gif')!important;
+    background-attachment: scroll!important;
+    width: 35px!important;
+    height: 35px!important;
+}
+
+.in, .out {
+    -webkit-animation-timing-function: ease-out!important;
+    -webkit-animation-duration: 300ms!important;
+    -moz-animation-timing-function: ease-out!important;
+    -moz-animation-duration: 300ms!important;
+    animation-timing-function: ease-out!important;
+    animation-duration: 300ms!important;
+}
+
+.ui-panel-inner {
+    padding: 0!important;
+}
+
+.ui-disabled, .ui-state-disabled, button[disabled], .ui-select .ui-btn.ui-state-disabled {
+    cursor: default !important;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.ui-corner-all {
+    border-radius: 0.3em;
+}
+
+.ui-btn {
+    background: #F6F6F6;
+    color: #333;
+}
+
+.ui-content input {
+    background-color: rgba(155, 155, 155, 0.4);
+    color: #555;
+}
+
+.ui-btn-icon-left:after, .ui-btn-icon-right:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
+    background-color: rgba(0, 0, 0, 0.3);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+}
+
+.fastfade.out {
+    .useGPU()!important;
+    .animation-name(fadeout);
+    .animation-duration(225ms);
+}
+.fastfade.in {
+    .useGPU()!important;
+    .animation-name(fadein);
+    .animation-duration(200ms);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="mo app">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>mo app</title>
+    <link rel="apple-touch-icon-precomposed" href="img/icons/icon.png" />
+    <script>
+        window.onerror = function (message, filename, lineno, colno, error) {
+            return onError(typeof error == 'object' ? error : {
+                message: message,
+                fileInfo: filename + ':' + lineno + ':' + colno
+            });
+        };
+
+        function onError (err) {
+            // Hack for #451.
+            if ((err.message && err.message.indexOf('StatusBar') != -1) || err.toString().indexOf('StatusBar') != -1) {
+                return true;
+            }
+
+            if (confirm(
+                            'Something went wrong.\n' +
+                            'Try again?\n\n' +
+                            'Please send us a screenshot of the error. We appreciate your kindness!\n\n' +
+                            dumpError(err))
+            ) {
+                location.reload();
+            }
+        }
+
+        function dumpError (err) {
+            if (typeof err == 'string' || !err) {
+                return err;
+            }
+
+            var str = '';
+
+            str += err.toString() + '\n\n';
+            str += '— userAgent: ' + navigator.userAgent + '\n';
+            str += '— message: ' + err.message + '\n';
+            if (err.originalError) {
+                str += '— originalError: ' + err.originalError.message + '\n';
+            }
+            if (err.fileInfo) {
+                str += '— stack: ' + err.fileInfo + '\n';
+            }
+            if (err.stack) {
+                str += '— stack: ' + err.stack.toString() + '\n';
+            }
+
+            return str;
+        }
+    </script>
+    <script src="bundle.js"></script>
+</head>
+<body class="hidden">
+    <div id="intro"><div class="circle"></div><div class="curl"></div></div>
+</body>
+</html>
