@@ -3,12 +3,16 @@
 #### Hybrid mobile apps framework with generators
 
 ### Fast start
-Run commands:
 ```bash
-npm i mo-framework -g
-mo new app
-cd app
-npm i
+# Install mo globally
+npm install -g mo-framework
+# Create new app
+mo new my-app && cd my-app
+# Install dependencies
+npm install
+# Start development server
 mo serve
 ```
-then open http://192.168.x.x:7777 on your mobile or desktop browser.
+Now open http://192.168.x.x:7777 in your mobile or desktop browser. 
+
+*Add the page to your device Home Screen to run it in fullscreen.*
