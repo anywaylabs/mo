@@ -1,6 +1,6 @@
 ## mo 🐍 framework
 
-#### Hybrid mobile apps framework with generators
+#### Hybrid mobile app framework with generators
 
 ### Fast start
 ```bash
