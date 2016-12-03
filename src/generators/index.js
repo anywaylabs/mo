@@ -4,7 +4,7 @@ const GENERATORS = ['app'];
 
 export default function (target, params) {
     if (includes(GENERATORS, target)) {
-        const generate = require(`./${target}/generate`).default;
+        const generate = require(`./${target}`).default;
         generate(params);
     }
 };

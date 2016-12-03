@@ -3,7 +3,9 @@
   "version": "0.0.2",
   "description": "Hybrid mobile app framework with generators",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "babel src -d build",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,7 @@
   "author": "Alexander Zinchuk",
   "license": "ISC",
   "bin": {
-    "mo": "./bin/mo.js"
+    "mo": "./build/bin/mo.js"
   },
   "bugs": {
     "url": "https://github.com/anywaylabs/mo/issues"

@@ -1,8 +1,9 @@
-#!/usr/bin/env babel-node
+#!/usr/bin/env node
 
 import program from 'commander';
 import generate from '../generators';
-import serve from '../staging/serve';
+import serve from '../server/serve';
+import {version} from '../../package.json';
 
 program
     .command('new [name]')
@@ -15,4 +16,6 @@ program
     .description('starts dev server')
     .action((name) => serve({source: process.cwd()}));
 
-program.parse(process.argv);
+program
+    .version(version)
+    .parse(process.argv);

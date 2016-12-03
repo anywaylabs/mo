@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Hybrid app on mo framework",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -21,10 +20,11 @@
     "less-loader": "^2.2.3",
     "less-plugin-glob": "^1.1.1",
     "lodash": "^4.17.2",
-    "mo-modules": "file:/Users/zinchuk/dev/mo/modules",
+    "mo": "^0.0.3",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
+    "webpack-hot-middleware": "^2.13.2",
     "extract-text-webpack-plugin": "^1.0.1"
   },
   "dependencies": {}
