@@ -10,7 +10,7 @@ npm install -g mo-framework
 mo new my-app && cd my-app
 # Install dependencies
 npm install
-# Start development server
+# Start the development server
 mo serve
 ```
 Now open http://192.168.x.x:7777 in your mobile or desktop browser. 
