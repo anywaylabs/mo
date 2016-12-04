@@ -42,7 +42,7 @@ module.exports = {
             path.resolve(__dirname, 'src/app')
         ],
         alias: {
-            mo: 'mo/modules'
+            mo: 'mo-framework/modules'
         }
     },
     output: {
