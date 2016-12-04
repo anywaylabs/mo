@@ -7,13 +7,19 @@ import {version} from '../../package.json';
 
 program
     .command('new [name]')
-    .description('creates new app')
+    .description('create new app')
     .action((name) => generate('app', {name}));
+
+program
+    .command('generate [target] [name]')
+    .alias('g')
+    .description('run specific generator (ex. `mo g page Home`)')
+    .action((target, name) => generate(target, {name}));
 
 program
     .command('serve')
     .alias('s')
-    .description('starts dev server')
+    .description('start dev server (ex. `mo s`)')
     .action((name) => serve({source: process.cwd()}));
 
 program

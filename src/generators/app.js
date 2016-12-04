@@ -12,11 +12,10 @@ export default function (params) {
     }
 
     const appPath = path.join(process.cwd(), appName);
+    
     fs.mkdir(appPath)
         .catch((err) => Promise.reject('Failed to create directory, does it already exist?'))
         .then(() => fs.copy(TEMPLATES_DIR, appPath))
-        .then(() => {
-            console.log(`Project created! Now run \`cd ${appName}\`.`);
-        })
+        .then(() => console.log(`Project created! Now run \`cd ${appName}\`.`))
         .catch((err) => console.error('Error:', err));
 }
