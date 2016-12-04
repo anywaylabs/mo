@@ -1,6 +1,10 @@
 ## mo 🐍 framework
 
-#### Hybrid mobile app framework with generators
+**Hybrid mobile app framework with generators**
+
+Create awesome mobile apps:
+* Using all **ES6+** features
+* With any **view engine** you love
 
 ### Fast start
 ```bash
