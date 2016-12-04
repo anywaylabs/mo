@@ -25,7 +25,7 @@ Now open http://192.168.x.x:7777 in your mobile or desktop browser.
 
 ### Using generators
 ```bash
-# Create new page with .js, .hbs .less files
+# Create new page with .js, .hbs and .less files
 mo generate page Home
 ```
 Now edit `views/components/menu/menu.hbs` to include new page to menu.
