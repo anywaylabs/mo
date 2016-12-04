@@ -22,3 +22,10 @@ mo serve
 Now open http://192.168.x.x:7777 in your mobile or desktop browser. 
 
 *Add the page to your device Home Screen to run it in fullscreen.*
+
+### Using generators
+```bash
+# Create new page with .js, .hbs .less files
+mo generate page Home
+```
+Now edit `views/components/menu/menu.hbs` to include new page to menu.
