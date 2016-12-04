@@ -34,7 +34,7 @@ define([
             });
         },
 
-        build: function (params) {
+        update: function (params) {
             this._clearElement();
             this._clearProxy();
 
@@ -43,7 +43,8 @@ define([
             }
 
             this._setupElement(params);
-            this.update(params);
+            
+            this.render(params);
 
             if (params.buttons) {
                 this._setupButtons(params);
@@ -82,7 +83,7 @@ define([
         _afterHide: function (callback) {
             this.$el.hide();
             this._clearButtons();
-            this.update({});
+            this.render();
             this._clearProxy();
             this._clearElement();
             callback && callback();

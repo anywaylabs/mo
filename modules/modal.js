@@ -25,7 +25,7 @@ define([
         isShown && hide();
 
         currentView = views[name];
-        currentView.build(content);
+        currentView.update(content);
 
         if (handlers) {
             currentView.events.on(handlers);

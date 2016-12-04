@@ -94,7 +94,6 @@ define([
         _.each(componentsContext.keys(), function (key) {
             var componentClass = componentsContext(key),
                 component = new componentClass();
-            component.init();
         });
     }
 

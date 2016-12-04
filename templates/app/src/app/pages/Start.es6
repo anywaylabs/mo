@@ -5,11 +5,9 @@ import pages from 'mo/pages';
 
 module.exports = class extends BasePage {
     constructor(name, viewClass) {
-        const viewEvents = {
-            buttonclick: (e, {user}) => popup.show(`Hello, ${user}!`)
-        };
-
-        super(name, viewClass, viewEvents);
+        super(name, viewClass, {
+            // View events go here.
+        });
     }
 
     // Hooks go here.

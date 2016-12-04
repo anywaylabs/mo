@@ -5,13 +5,12 @@ module.exports = class extends BasePage {
         super(name, viewClass, {
             // View events go here.
         });
-
-        this.view.render();
     }
 
     // Hooks go here.
 
     onBeforeShow() {
+        // this.view.update(state);
     }
 
     onShow() {

@@ -6,15 +6,13 @@ define([
     return classTool.create(function ($el, template) {
         BaseView.call(this, $('#modal'), template);
     }, BaseView, {
-        build: function (content) {
-            this.update(content);
+        update: function (state) {
+            this.render(state);
             this._setupListeners();
 
             this.$el
                 .addClass('in')
                 .show();
-
-            BaseView.prototype.build.call(this);
         },
 
         clear: function () {
@@ -29,8 +27,6 @@ define([
                     $el.hide();
                 }
             }, 100);
-
-            BaseView.prototype.clear.call(this);
         },
 
         _setupListeners: function () {

@@ -7,19 +7,15 @@ module.exports = class extends BaseView {
         super($el, template);
     }
 
-    build(content) {
-        this.update(content);
-
-        this.$('a').on('vclick', () => this._onClick());
+    update(state) {
+        this.state = state;
+        this.render();
+        this._setupListeners();
     }
 
-    clear() {
-        this.update();
-        
-        this.$('a').off('vclick');
-    }
-
-    _onClick() {
-        this.events.trigger('buttonclick', { user: 'mo developer' })
+    _setupListeners() {
+        this.$('a').on('vclick', () => {
+            this.events.trigger('buttonclick', { user: 'mo developer' })
+        });
     }
 };

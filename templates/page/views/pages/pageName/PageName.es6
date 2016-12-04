@@ -5,17 +5,15 @@ import './{{pageName}}.less';
 module.exports = class extends BaseView {
     constructor($el) {
         super($el, template);
+        this.update();
     }
 
-    build(content) {
-        this.update(content);
-
+    update(state) {
+        this.state = state;
+        this.render();
         this._setupListeners();
     }
 
-    clear() {
-        this._clearListeners();
-
-        this.update(null);
+    _setupListeners() {
     }
 };

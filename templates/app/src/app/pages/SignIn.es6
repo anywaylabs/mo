@@ -9,7 +9,7 @@ module.exports = class extends BasePage {
 
         super(name, viewClass, viewEvents);
 
-        this.view.build({hello: 'Welcome to mo!'});
+        this.view.update({hello: 'Welcome to mo!'});
     }
 
     // Hooks go here.

@@ -39,7 +39,7 @@ define([
             view.events.on('click', hide);
         }
 
-        view.build(params);
+        view.update(params);
 
         if (params.vibrate) {
             vibrate(params.vibrate);

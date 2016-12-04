@@ -10,14 +10,39 @@ define([
         this.$el = $el;
 
         this._template = template;
-        this._content = '';
-        
+        this.state = '';
+
         this.events = new EventManager();
         this.events.trigger('init');
 
     }, {
-        init: function ($el) {
+        /**
+         * @protected
+         */
+        $: function (selector) {
+            return $(selector, this.$el);
+        },
 
+        /**
+         * @protected
+         */
+        update: function (state) {
+            this.state = state || {};
+            this.render();
+        },
+
+        /**
+         * @protected
+         */
+        clear: function () {
+            this.state = {};
+            this.render();
+        },
+
+        render: function (state) {
+            return this.$el.html(render(this._template, state || this.state || {}))
+                .trigger('rendered')
+                .trigger('sizechange');
         },
 
         empty: function () {
@@ -25,16 +50,6 @@ define([
                 .trigger('rendered')
                 .trigger('sizechange');
         },
-
-        /**
-         * @abstract
-         */
-        build: function () {},
-
-        /**
-         * @abstract
-         */
-        clear: function () {},
 
         scrollTop: function () {
             this.$el
@@ -48,27 +63,6 @@ define([
                 .css('display', 'block')
                 .scrollTop(this.$el[0].scrollHeight)
                 .css('display', '');
-        },
-        
-        update: function (content) {
-            this._content = content || {};
-            this.render();
-        },
-
-        /**
-         * @protected
-         */
-        render: function () {
-            return this.$el.html(render(this._template, this._content))
-                .trigger('rendered')
-                .trigger('sizechange');
-        },
-
-        /**
-         * @protected
-         */
-        $: function (selector) {
-            return $(selector, this.$el);
         }
     });
 });

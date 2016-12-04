@@ -12,17 +12,17 @@ define([
             .find('[data-role="controlgroup"]')
             .controlgroup();
 
-        this.setup();
-        this._setupEventListeners();
+        this.update();
+        this._setupListeners();
     }, BaseView, {
-        setup: function () {
-            this.update({
+        update: function () {
+            this.render({
                 user: currentUser.isGuest() ? { guest: true } : currentUser.getData()
             });
         },
     
-        _setupEventListeners: function () {
-            currentUser.events.on('change', this.setup.bind(this));
+        _setupListeners: function () {
+            currentUser.events.on('change', this.update.bind(this));
 
             var _this = this;
 

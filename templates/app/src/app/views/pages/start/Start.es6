@@ -7,19 +7,8 @@ module.exports = class extends BaseView {
         super($el, template);
     }
 
-    build(content) {
-        this.update(content);
-
-        this.$('a').on('vclick', () => this._onClick());
-    }
-
-    clear() {
-        this.update();
-        
-        this.$('a').off('vclick');
-    }
-
-    _onClick() {
-        this.events.trigger('buttonclick', { user: 'mo developer' })
+    update(state) {
+        this.state = state;
+        this.render();
     }
 };
