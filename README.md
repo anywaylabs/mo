@@ -5,6 +5,8 @@
 Create awesome mobile apps:
 * Using all **ES6+** features
 * With any **view engine** you love
+* Generating **scaffold** stuff
+* With **wireless hot-reload** on devices
 
 ### Fast start
 ```bash
