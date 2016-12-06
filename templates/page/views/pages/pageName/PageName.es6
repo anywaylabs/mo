@@ -2,7 +2,7 @@ import BaseView from 'mo/views/Base';
 import template from './{{pageName}}.hbs';
 import './{{pageName}}.less';
 
-module.exports = class extends BaseView {
+class {{PageName}} extends BaseView {
     constructor($el) {
         super($el, template);
         this.update();
@@ -16,4 +16,6 @@ module.exports = class extends BaseView {
 
     _setupListeners() {
     }
-};
+}
+
+module.exports = {{PageName}};

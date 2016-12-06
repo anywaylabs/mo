@@ -1,6 +1,6 @@
 import BasePage from 'mo/pages/Base';
 
-module.exports = class extends BasePage {
+class {{PageName}} extends BasePage {
     constructor(name, viewClass) {
         super(name, viewClass, {
             // View events go here.
@@ -21,4 +21,10 @@ module.exports = class extends BasePage {
 
     onHide() {
     }
-};
+}
+
+// Change to 'blank' to disable menu.
+{{PageName}}.LAYOUT = 'main';
+
+// ES5 compatibility.
+module.exports = {{PageName}};
