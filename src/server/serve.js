@@ -6,14 +6,14 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import ip from 'ip';
 
 const STAGING_PATH = path.resolve(__dirname, '../../staging/');
+const DEFAULT_PORT = 7777;
 
-export default function (params) {
-    const webpackConfig = require(path.join(params.source, 'webpack.config.js'));
+export default function ({source, port = DEFAULT_PORT}) {
+    const webpackConfig = require(path.join(source, 'webpack.config.js'));
     const publicPath = webpackConfig.output.publicPath;
-    const publicPathAbsolute = path.join(params.source, publicPath);
+    const publicPathAbsolute = path.join(source, publicPath);
     const compiler = webpack(webpackConfig);
     const localIp = ip.address();
-    const port = 7777;
 
     express()
         .use(webpackDevMiddleware(compiler, {publicPath, stats: {colors: true}}))

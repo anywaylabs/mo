@@ -19,8 +19,12 @@ program
 program
     .command('serve')
     .alias('s')
+    .option('-p, --port [port]', 'express.js port (defaults to 7777)')
     .description('start dev server (ex. `mo s`)')
-    .action((name) => serve({source: process.cwd()}));
+    .action((options) => serve({
+        source: process.cwd(),
+        port: options.port
+    }));
 
 program
     .version(version)
