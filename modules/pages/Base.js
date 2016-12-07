@@ -31,11 +31,13 @@ define([
                 return;
             }
 
+            var _this = this;
+
             _.each(params, function (value, param) {
-                if (this._paramsHandlers[param]) {
-                    this._paramsHandlers[param].call(this, value);
+                if (_this._paramsHandlers[param]) {
+                    _this._paramsHandlers[param].call(_this, value);
                 }
-            }, this);
+            });
         },
 
         /**
