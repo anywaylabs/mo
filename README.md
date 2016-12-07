@@ -19,7 +19,7 @@ npm install
 # Start the development server
 mo serve
 ```
-Now open http://192.168.x.x:7777 in your mobile or desktop browser. 
+Now open http://x.x.x.x:7777 in your mobile or desktop browser. 
 
 *Add the page to your device Home Screen to run it in fullscreen.*
 
