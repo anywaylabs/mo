@@ -38,14 +38,14 @@ define([
         return deferred.promise();
     }
 
-    return function () {
+    return function (params={}) {
         return ready().then(function () {
             pages.init();
             bindLinks();
             layout.init();
-            connect.init();
+            (params.connect !== false) && connect.init();
             media.init();
-            music.init();
+            (params.music !== false) && music.init();
         });
     };
 });
