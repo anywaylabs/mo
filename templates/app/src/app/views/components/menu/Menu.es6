@@ -8,6 +8,7 @@ class Menu extends Panel {
     }
 }
 
+// Method `update` will be called when `currentUser` is changed in global `mo/store`.
 Menu.storeSources = ['currentUser'];
 
 module.exports = Menu;

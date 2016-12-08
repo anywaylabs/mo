@@ -1,6 +1,6 @@
 import BaseView from 'mo/views/Base';
-import template from './start.hbs';
-import './start.less';
+import template from './home.hbs';
+import './home.less';
 
 module.exports = class extends BaseView {
     constructor($el) {

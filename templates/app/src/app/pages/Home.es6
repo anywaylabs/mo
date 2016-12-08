@@ -1,4 +1,3 @@
-import popup from 'mo/popup';
 import BasePage from 'mo/pages/Base';
 import modal from 'mo/modal';
 import pages from 'mo/pages';
@@ -19,7 +18,7 @@ module.exports = class extends BasePage {
 
         modal.show('info', 'You need to sign in!');
 
-        setTimeout(() => pages.change('signIn'), 2000);
+        setTimeout(pages.back, 2000);
     }
 
     onShow() {

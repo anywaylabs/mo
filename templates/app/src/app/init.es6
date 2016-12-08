@@ -20,7 +20,7 @@ function setupAuth () {
     events.on({
         'auth:login': () => {
             pushNotifications.init();
-            pages.change('start');
+            pages.change('home');
         },
         'auth:logout': () => {
             pages.change('signIn');
