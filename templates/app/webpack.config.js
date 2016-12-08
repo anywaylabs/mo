@@ -5,10 +5,8 @@ var lessGlob = require('less-plugin-glob');
 
 module.exports = {
     entry: {
-        app: [
-            './src/app/init.es6',
-            'webpack-hot-middleware/client?reload=true'
-        ]
+        app: ['./src/app/init.es6'],
+        vendor: ['jquery', 'lodash', 'mo/jqm', 'mo/socket.io', 'webpack-hot-middleware/client?reload=true']
     },
     module: {
         loaders: [{
@@ -51,7 +49,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        // new ExtractTextPlugin("intro.css", {allChunks: false}),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
         new webpack.HotModuleReplacementPlugin()
     ],
     lessLoader: {
