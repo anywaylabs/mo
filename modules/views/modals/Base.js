@@ -8,7 +8,7 @@ define([
     }, BaseView, {
         update: function (state) {
             this.render(state);
-            this._setupListeners();
+            this.setupListeners();
 
             this.$el
                 .addClass('in')
@@ -16,7 +16,7 @@ define([
         },
 
         clear: function () {
-            this._clearListeners();
+            this.clearListeners();
 
             var $el = this.$el;
 
@@ -29,11 +29,17 @@ define([
             }, 100);
         },
 
-        _setupListeners: function () {
+        /**
+         * @abstract
+         */
+        setupListeners: function () {
 
         },
 
-        _clearListeners: function () {
+        /**
+         * @abstract
+         */
+        clearListeners: function () {
 
         }
     });
