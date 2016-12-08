@@ -1,8 +1,8 @@
 define([
     'lodash', 'jquery',
     'config',
-    '../env', '../assets'
-], function (_, $, config, env, assets) {
+    '../store', '../env', '../assets'
+], function (_, $, config, store, env, assets) {
 
 // Handlebars = Handlebars['default'];
 //
@@ -83,7 +83,7 @@ define([
 // }
 
 return function (template, context) {
-    return template(_.extend(context, { __config: config, __env: env }));
+    return template(_.extend({}, store.getAll(), context, { __config: config, __env: env }));
 }
 
 });

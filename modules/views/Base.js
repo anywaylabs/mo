@@ -1,21 +1,43 @@
 define([
     'jquery', 'lodash',
     './render',
-    '../class', '../EventManager'
-], function ($, _, render, classTool, EventManager) {
+    '../store', '../class', '../EventManager'
+], function ($, _, render, store, classTool, EventManager) {
     return classTool.create(function ($el, template) {
+        this.events = new EventManager();
+        this.events.trigger('init');
+
         /**
          * @protected
          */
         this.$el = $el;
 
-        this._template = template;
+        /**
+         * @protected
+         */
         this.state = '';
 
-        this.events = new EventManager();
-        this.events.trigger('init');
+        this._template = template;
 
+        if (this.constructor.storeSources) {
+            var _this = this;
+            store.observe(this.constructor.storeSources, () => {
+                // `update` could be overridden in a child class.
+                this.update(this.state);
+            });
+        }
     }, {
+        update: function (state) {
+            this.state = state || {};
+            this.render();
+        },
+
+        clear: function () {
+            this.state = {};
+            this.render();
+        },
+
+
         /**
          * @protected
          */
@@ -26,31 +48,24 @@ define([
         /**
          * @protected
          */
-        update: function (state) {
-            this.state = state || {};
-            this.render();
-        },
-
-        /**
-         * @protected
-         */
-        clear: function () {
-            this.state = {};
-            this.render();
-        },
-
         render: function (state) {
             return this.$el.html(render(this._template, state || this.state || {}))
                 .trigger('rendered')
                 .trigger('sizechange');
         },
 
+        /**
+         * @protected
+         */
         empty: function () {
             return this.$el.html('')
                 .trigger('rendered')
                 .trigger('sizechange');
         },
 
+        /**
+         * @protected
+         */
         scrollTop: function () {
             this.$el
                 .css('display', 'block')
@@ -58,6 +73,9 @@ define([
                 .css('display', '');
         },
 
+        /**
+         * @protected
+         */
         scrollBottom: function () {
             this.$el
                 .css('display', 'block')
