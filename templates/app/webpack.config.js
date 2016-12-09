@@ -1,29 +1,35 @@
 var webpack = require('webpack');
 var path = require('path');
-var ip = require('ip');
-var lessGlob = require('less-plugin-glob');
 
 module.exports = {
     entry: {
         app: ['./src/app/init.es6'],
-        vendor: ['jquery', 'lodash', 'mo/jqm', 'mo/socket.io', 'webpack-hot-middleware/client?reload=true']
+        vendor: [
+            'jquery', 'lodash',
+            'mo/jqm', 'mo/bouncefix',
+            'immutable', 'vow', 'socket.io-client'
+            //, 'handlebars'
+        ]
     },
     module: {
         loaders: [{
             test: /\.es6/,
-            loader: 'babel'
+            loader: 'babel-loader'
         }, {
             test: /\.hbs/,
             loader: 'handlebars-loader'
         }, {
             test: /\.less$/,
-            loader: 'style!css!less'
-        }, {
-            test: /\.css/,
-            loader: 'style!css'
+            loader: 'style-loader!css-loader!less-loader'
         }, {
             test: /\.(jpg|png|svg|gif)/,
-            loader: 'url'
+            loader: 'url-loader?limit=50000'
+        }, {
+            test: /\.(eot|ttf|woff)/,
+            loader: 'file-loader'
+        }, {
+            test: /\.css/,
+            loader: 'style-loader!css'
         }, {
             test: /jquery.mobile-/,
             loader: '../loaders/context-window'
@@ -51,8 +57,5 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
         new webpack.HotModuleReplacementPlugin()
-    ],
-    lessLoader: {
-        lessPlugins: [lessGlob]
-    }
+    ]
 };

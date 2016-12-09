@@ -1,8 +1,8 @@
 define([
     'jquery', 'lodash',
     'config',
-    '../class', '../helpers'
-], function ($, _, config, classTool, helpers) {
+    '../class'
+], function ($, _, config, classTool) {
     return classTool.create(function (name, viewClass, viewHandlers, paramsHandlers) {
         this._name = name;
 
@@ -75,7 +75,7 @@ define([
             }
 
             var _this = this,
-                template = 'pages/' + helpers.string.undasherize(this._name);
+                template = 'pages/' + this._name;
 
             this.view = new viewClass(this._$page, template);
             this.view.events.on(_.keys(viewHandlers).join(' '), function (e, data) {

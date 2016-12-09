@@ -38,7 +38,8 @@ define([
         return deferred.promise();
     }
 
-    return function (params={}) {
+    return function (params) {
+        params || (params = {});
         return ready().then(function () {
             pages.init();
             bindLinks();

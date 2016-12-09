@@ -21,7 +21,7 @@ define([
 
         if (this.constructor.storeSources) {
             var _this = this;
-            store.observe(this.constructor.storeSources, () => {
+            store.observe(this.constructor.storeSources, function () {
                 // `update` could be overridden in a child class.
                 this.update(this.state);
             });
