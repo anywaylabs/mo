@@ -1,0 +1,9 @@
+npm run build
+rm -rf phonegap/www
+mkdir phonegap/www
+cp build/* phonegap/www/
+cd phonegap
+cp -r res www/
+cp -r res/icon/icon.png www/
+phonegap prepare ios
+#phonegap emulate ios --target="iPhone-6s";

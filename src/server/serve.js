@@ -16,7 +16,7 @@ export default function ({source, port = DEFAULT_PORT}) {
     const localIp = ip.address();
 
     express()
-        .use(webpackDevMiddleware(compiler, {publicPath, stats: {colors: true}}))
+        .use(webpackDevMiddleware(compiler, {publicPath: '/src', stats: {colors: true}}))
         .use(webpackHotMiddleware(compiler))
         .use(publicPath, express.static(publicPathAbsolute))
         .use(express.static(STAGING_PATH))
