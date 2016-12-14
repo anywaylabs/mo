@@ -1,6 +1,6 @@
 import {includes} from 'lodash';
 
-const GENERATORS = ['app', 'page'];
+const GENERATORS = ['app', 'page', 'modal'];
 
 export default function (target, params) {
     if (includes(GENERATORS, target)) {

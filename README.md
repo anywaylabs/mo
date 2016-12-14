@@ -26,6 +26,9 @@ Now open http://x.x.x.x:7777 in your mobile or desktop browser.
 ### Using generators
 ```bash
 # Create new page with .js, .hbs and .less files
-mo generate page Home
+mo generate page Profile
+
+# Create new modal with .js, .hbs and .less files
+mo generate modal Connection
 ```
 Now edit `views/components/menu/menu.hbs` to include new page to menu.

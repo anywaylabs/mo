@@ -10,7 +10,7 @@ define([], function() {
     }
 
     if (!rAF) {
-        rAF = function(callback, element) {
+        rAF = function(callback) {
             var currTime = new Date().getTime();
             var timeToCall = Math.max(0, 16 - (currTime - lastTime));
             var id = setTimeout(function() { callback(currTime + timeToCall); }, timeToCall);
@@ -24,7 +24,7 @@ define([], function() {
     }
 
     return {
-        setup: function (callback, element) { return rAF(callback, element); },
+        setup: function (callback) { return rAF(callback); },
         cancel: function (id) { cancel(id); }
     }
 }());

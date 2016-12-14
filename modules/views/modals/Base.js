@@ -1,22 +1,28 @@
 define([
     'jquery',
     '../Base',
+    '../../requestAnimationFrame',
     '../../class'
-], function ($, BaseView, classTool) {
+], function ($, BaseView, rAF, classTool) {
+    var TRANSITION_DURATION = 400;
+
     return classTool.create(function ($el, template) {
         BaseView.call(this, $('#modal'), template);
     }, BaseView, {
         update: function (state) {
-            this.render(state);
-            this.setupListeners();
+            this.state = state || {};
+            this.render();
+            this._setupCloseListeners();
 
-            this.$el
-                .addClass('in')
-                .show();
+            var $el = this.$el;
+
+            $el.show();
+            rAF.setup(function () { $el.addClass('in'); });
         },
 
         clear: function () {
-            this.clearListeners();
+            this.state = {};
+            this._clearCloseListeners();
 
             var $el = this.$el;
 
@@ -26,21 +32,18 @@ define([
                 if (!$el.hasClass('in')) {
                     $el.hide();
                 }
-            }, 100);
+            }, TRANSITION_DURATION);
         },
 
-        /**
-         * @abstract
-         */
-        setupListeners: function () {
-
+        _setupCloseListeners: function () {
+            var _this = this;
+            this.$('.btn-close').on('vclick', function () {
+                _this.events.trigger('close');
+            });
         },
 
-        /**
-         * @abstract
-         */
-        clearListeners: function () {
-
+        _clearCloseListeners: function () {
+            this.$('.btn-close').off('vclick');
         }
     });
 });
