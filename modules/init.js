@@ -13,6 +13,10 @@ define([
         vow.debug = true;
     }
 
+    if (window.cordova && !window.cordova.plugins) {
+        window.cordova.plugins = {};
+    }
+
     function ready () {
         var deferred = vow.defer(),
             deviceReady = !env.phonegap;
