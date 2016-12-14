@@ -5,6 +5,8 @@ define(['jquery', './jqm'], function ($, $mobile) {
         if (stackLength == 0) {
             // Fix for bug in iOS when `top` is somehow being set while keyboard is open.
             $('.ui-loader').css(style || {top: ''});
+
+            $mobile.loading('show');
         }
 
         stackLength++;
