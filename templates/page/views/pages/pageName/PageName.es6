@@ -8,7 +8,7 @@ class {{PageName}} extends BaseView {
         this.update();
     }
 
-    update(state) {
+    update(state={}) {
         this.state = state;
         this.render();
         this._setupListeners();
