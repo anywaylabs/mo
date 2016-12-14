@@ -1,12 +1,12 @@
 define([
     'config',
     'jquery', './jqm', 'vow',
-    './connect', './pages', './music', './views/layout',
+    './connect', './pages', './events', './music', './views/layout',
     './bindLinks',  './env', './media'
 ], function (
     config,
     $, $mobile, vow,
-    connect, pages, music, layout,
+    connect, pages, events, music, layout,
     bindLinks, env, media
 ) {
     if (config.debug) {
@@ -38,6 +38,18 @@ define([
         return deferred.promise();
     }
 
+    function setupPauseObserver () {
+        $(document).on({
+            pause: function () {
+                events.trigger('apppause');
+            },
+
+            resume: function () {
+                events.trigger('appresume');
+            }
+        });
+    }
+
     return function (params) {
         params || (params = {});
         return ready().then(function () {
@@ -47,6 +59,7 @@ define([
             (params.connect !== false) && connect.init();
             media.init();
             (params.music !== false) && music.init();
+            setupPauseObserver()
         });
     };
 });
