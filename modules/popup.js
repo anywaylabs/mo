@@ -97,7 +97,9 @@ define([
             if (params.msg) {
                 params.content = params.msg;
             } else if (!params.proxy) {
-                params.content = 'error' in params ? (typeof params.error == 'string' ? params.error : "Ошибка") : "Готово!";
+                params.content = 'error' in params ?
+                    (typeof params.error == 'string' ? params.error : "Error") :
+                    "Done!";
             }
         }
 
