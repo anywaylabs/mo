@@ -1,7 +1,7 @@
 #modal {
     color: white;
     display: none;
-    padding: 8px;
+    padding: @grid-gutter-width 0 0;
     overflow: auto;
     overflow-y: scroll;
     position: fixed;
@@ -10,11 +10,11 @@
     bottom: 0;
     left: 0;
     z-index: @zindex-modal;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.75);
     outline: 0;
     -webkit-overflow-scrolling: touch;
     .translate(0, 100%);
-    .transition-transform(400ms ease-out);
+    .transition-transform(250ms ease-out);
 
     &.in {
         .translate(0, 0);
@@ -36,5 +36,21 @@
         border-right-width: 10px;
         background-origin: content-box;
         background-clip: content-box;
+    }
+
+    body.status-bar-overlays-web-view.env-ios & {
+        padding-top: @grid-gutter-width + @status-bar-height-ios;
+
+        .btn-close {
+            border-top-width: 10px + @status-bar-height-ios;
+        }
+    }
+
+    body.status-bar-overlays-web-view.env-android & {
+        padding-top: @grid-gutter-width + @status-bar-height-android;
+
+        .btn-close {
+            border-top-width: 10px + @status-bar-height-android;
+        }
     }
 }

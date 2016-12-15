@@ -22,7 +22,9 @@ define([
             analytics.hitModal(name, { referrer: pages.getCurrentUrl() });
         }
 
-        isShown && hide();
+        if (isShown && currentView != views[name]) {
+            hide();
+        }
 
         currentView = views[name];
         currentView.update(content);
