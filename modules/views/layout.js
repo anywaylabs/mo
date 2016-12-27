@@ -129,7 +129,7 @@ define([
                 $header[0].className = $pageHeader[0].className;
             }
 
-            if ($pageHeader.length || $page.data('skin') == 'dark') {
+            if ($page.data('skin') == 'dark') {
                 statusBar.light();
             } else {
                 statusBar.dark();
@@ -224,29 +224,21 @@ define([
 
             if (currentLayout != pageLayout) {
                 $body.data('layout', pageLayout);
-                document.body.className = document.body.className.replace('layout-' + currentLayout, 'layout-' + pageLayout);
+                $body
+                    .removeClass('layout-' + currentLayout)
+                    .addClass('layout-' + pageLayout);
+
                 currentLayout = pageLayout;
             }
+            
+            if (currentSkin != pageSkin) {
+                $body
+                    .removeClass('skin-' + currentSkin)
+                    .addClass('skin-' + pageSkin);
 
-            var needDark = ['dark', 'opaque'].indexOf(currentSkin) != -1 && ['dark', 'opaque'].indexOf(pageSkin) != -1 &&
-                    !(currentSkin == 'opaque' && pageSkin == 'opaque'),
-                needOpaque = currentSkin == 'opaque' && pageSkin == 'opaque';
+                currentSkin = pageSkin;
 
-            $body.toggleClass('skin-dark', needDark);
-            if (needDark) {
-                $page.one('pageshow', function () {
-                    $body.removeClass('skin-dark', needDark);
-                });
             }
-
-            $body.toggleClass('skin-opaque', needOpaque);
-            if (needOpaque) {
-                $page.one('pageshow', function () {
-                    $body.removeClass('skin-opaque', needOpaque);
-                });
-            }
-
-            currentSkin = pageSkin;
         });
     }
 
