@@ -113,7 +113,7 @@ define([
             }
         }
 
-        change('start', { direction: 'reverse' });
+        change('home', { direction: 'reverse' });
     }
 
     function getCurrent () {
