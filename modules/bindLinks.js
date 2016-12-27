@@ -86,6 +86,8 @@ define([
                 }, $this.data('params'));
             } else if (href == '#:back') {
                 pages.back(/* can't pass params :( */);
+            } else if (href.indexOf('tel:') === 0) {
+                window.open(href, '_system');
             } else if (config.debug) {
                 navigator.notification.alert('Ошибка обработки ссылки: ' + $this.attr('href'), 'DEBUG');
             }
