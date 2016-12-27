@@ -17,3 +17,6 @@ phonegap platform add android
 
 # Run with PhoneGap
 npm run phonegap
+```
+
+<sub>Get [mo knowledge](https://github.com/anywaylabs/mo) about this mo 🐍 framework</sub>
