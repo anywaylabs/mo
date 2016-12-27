@@ -14,8 +14,9 @@ mo generate modal Connection
 cd phonegap
 phonegap platform add ios
 phonegap platform add android
+cd ../
 
-# Run with PhoneGap
+# Run/emulate with PhoneGap
 npm run phonegap
 ```
 
