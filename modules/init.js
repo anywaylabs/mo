@@ -61,8 +61,10 @@ define([
             bindLinks();
             layout.init();
             (params.connect !== false) && connect.init();
-            media.init();
-            (params.music !== false) && music.init();
+            if (params.media !== false) {
+                media.init()
+                (params.music !== false) && music.init();
+            }
             setupPauseObserver()
         });
     };

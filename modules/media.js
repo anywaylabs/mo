@@ -119,21 +119,29 @@ var html5Audio = {
         _media: null,
 
         init: function () {
-            initProxy._media = env.phonegap ?
-                (window.plugins && window.plugins.NativeAudio ? naMedia : phonegapMedia) :
-                html5Audio;
-
+            if (env.phonegap) {
+                if (window.plugins && typeof window.plugins.NativeAudio == 'function') {
+                    initProxy._media = naMedia;
+                } else if (typeof window.Media == 'function') {
+                    initProxy._media = phonegapMedia;
+                } else {
+                    initProxy._media = html5Audio;
+                }
+            } else {
+                initProxy._media = html5Audio;
+            }
+            
             if (typeof initProxy._media.init == 'function') {
                 return initProxy._media.init.apply(this, arguments);
             }
         },
 
         play: function () {
-            return initProxy._media.play.apply(this, arguments);
+            return initProxy._media && initProxy._media.play.apply(this, arguments);
         },
 
         clearPlayer: function () {
-            return initProxy._media.clearPlayer.apply(this, arguments);
+            return initProxy._media && initProxy._media.clearPlayer.apply(this, arguments);
         }
     };
 
