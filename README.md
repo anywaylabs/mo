@@ -34,7 +34,7 @@ mo generate modal Connection
 Now edit `views/components/menu/menu.hbs` to include new page to menu.
 
 ### Using with PhoneGap
-```
+```bash
 # Setup
 cd phonegap/
 phonegap platform add ios
