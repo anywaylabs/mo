@@ -2,6 +2,10 @@
     padding-top: @header-height;
 }
 
+.has-fixed-footer {
+    padding-bottom: @footer-height;
+}
+
 .header {
     padding: 5px 0 5px 0;
     min-height: @header-height;
@@ -19,6 +23,10 @@
         &.small {
             font-size: 20px;
             line-height: 44px;
+        }
+
+        body.skin-light & {
+            color: #666666;
         }
     }
 
@@ -40,14 +48,12 @@
             background: transparent!important;
             .img-sprite();
             background-position: -70px -224px!important;
-        }
-    }
 
-    .back-skin-light {
-        &:after {
-            width: 11px;
-            left: 14px;
-            background-position: -213px 2px!important;
+            body.skin-light & {
+                width: 11px;
+                left: 14px;
+                background-position: -213px 2px !important;
+            }
         }
     }
 
@@ -71,12 +77,10 @@
             background: transparent!important;
             .img-sprite();
             background-position: -197px -251px!important;
-        }
-    }
 
-    .menu-skin-light {
-        &:after {
-            background-position: -230px -251px!important;
+            body.skin-light & {
+                background-position: -230px -251px !important;
+            }
         }
     }
 
@@ -167,7 +171,7 @@ body.status-bar-overlays-web-view.env-ios {
         min-height: @header-height + @status-bar-height-ios!important;
         padding-top: 5px + @status-bar-height-ios!important;
 
-        .menu-ico {
+        .menu-ico, .back-ico {
             top: 5px + @status-bar-height-ios!important;
         }
 
@@ -191,7 +195,7 @@ body.status-bar-overlays-web-view.env-android {
         min-height: @header-height + @status-bar-height-android!important;
         padding-top: 5px + @status-bar-height-android!important;
 
-        .menu-ico {
+        .menu-ico, .back-ico {
             top: 5px + @status-bar-height-android!important;
         }
 

@@ -26,5 +26,8 @@ class {{PageName}} extends BasePage {
 // Change to 'blank' to disable menu.
 {{PageName}}.LAYOUT = 'main';
 
+// Change to 'dark' for white controls.
+{{PageName}}.SKIN = 'light';
+
 // ES5 compatibility.
 module.exports = {{PageName}};
