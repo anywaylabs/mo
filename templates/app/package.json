@@ -4,8 +4,9 @@
   "description": "Hybrid app on mo framework",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf build/ && webpack",
-    "release": "rm -rf build/ && webpack -p"
+    "dev": "mo serve",
+    "build": "rm -rf build/ && webpack -p",
+    "phonegap": "cd phonegap/ && phonegap run"
   },
   "author": "",
   "license": "ISC",
@@ -23,7 +24,7 @@
     "less-loader": "^2.2.3",
     "less-plugin-glob": "^1.1.1",
     "lodash": "^4.17.2",
-    "mo-framework": "^0.0.17",
+    "mo-framework": "^0.1.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",

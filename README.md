@@ -32,3 +32,15 @@ mo generate page Profile
 mo generate modal Connection
 ```
 Now edit `views/components/menu/menu.hbs` to include new page to menu.
+
+### Using with PhoneGap
+```
+# Setup
+cd phonegap/
+phonegap platform add ios
+phonegap platform add android
+cd ../
+
+# Run/emulate
+npm run phonegap
+```

@@ -3,7 +3,6 @@
 import program from 'commander';
 import generate from '../generators';
 import serve from '../server/serve';
-import prepare from '../tools/prepare';
 import {version} from '../../package.json';
 
 program
@@ -27,12 +26,6 @@ program
         source: process.cwd(),
         port: options.port
     }));
-
-program
-    .command('prepare')
-    .alias('p')
-    .description('compile app into phonegap/www (execute phonegap/prepare)')
-    .action(prepare);
 
 program
     .description('Run `mo [command] -h` to show command options')
