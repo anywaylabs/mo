@@ -20,4 +20,4 @@ cd ../
 npm run phonegap
 ```
 
-<sub>Get [mo knowledge](https://github.com/anywaylabs/mo) about that mo 🐍 framework</sub>
+<sub>Get [mo knowledge](https://github.com/anywaylabs/mo) about this mo 🐍 framework</sub>
