@@ -16,7 +16,8 @@ define([
     var currentLayout = 'blank',
         currentSkin = 'light',
         $body = null,
-        pageWithKeyboard = null;
+        pageWithKeyboard = null,
+        swipeToBackEnabled = false;
 
     function init () {
         $body = $(document.body);
@@ -121,6 +122,8 @@ define([
                 return;
             }
 
+            swipeToBackEnabled = $page.find('.header .back-ico').length > 0;
+
             if (!$pageHeader.length) {
                 $header.html('');
                 $header.addClass('hidden');
@@ -161,6 +164,7 @@ define([
     function setupTouchEvents () {
         $(document).on('swiperight', function (e) {
             if (
+                swipeToBackEnabled &&
                 $('#main-panel').css('visibility') == 'hidden' &&
                 e.swipestart.coords[0] < $(window).width() * 0.1 &&
                 !modal.isShown()
@@ -175,8 +179,6 @@ define([
             playSound('pk');
         });
     }
-
-
 
     function introOut (cb) {
         $body
