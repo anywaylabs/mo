@@ -2,8 +2,9 @@ define([
     'jquery',
     '../Base',
     '../../class', '../../requestAnimationFrame', '../../env',
-    './popup.hbs'
-], function ($, BaseView, classTool, rAF, env, template) {
+    './popup.hbs',
+    'config'
+], function ($, BaseView, classTool, rAF, env, template, config) {
     var HIDE_DURATION = 300;
 
     return classTool.create(function ($el) {
@@ -46,6 +47,10 @@ define([
             
             this.render(params);
 
+            if (config.debug) {
+                this._checkInputWithoutLabel();
+            }
+
             if (params.buttons) {
                 this._setupButtons(params);
             }
@@ -73,7 +78,7 @@ define([
             rAF.setup(function () {
                 $el.css(params.css || {
                     top: env.vkontakte ? 200 - $el.height() / 2 : ($(window).height() - $el.height()) / 2,
-                    left: ($(window).width() - $el.width()) / 2
+                    left: ($('.ui-page-active').width() - $el.width()) / 2
                 });
 
                 $el.removeClass('min');
@@ -117,6 +122,15 @@ define([
 
         _clearProxy: function () {
             this._$proxy[0].className = '';
+        },
+
+        _checkInputWithoutLabel: function () {
+            if (
+                !!this.$el.find('textarea, input').length &&
+                !this.$el.find('label').length
+            ) {
+                console.warn('mo popup usage warning: wrap inputs with <label> tag to enable focusing on touch screen');
+            }
         },
 
         _setupButtons: function (params) {
