@@ -6,4 +6,3 @@ rm -rf phonegap/www
 mkdir phonegap/www
 cp build/* phonegap/www/
 cd phonegap
-cp -r res www/
