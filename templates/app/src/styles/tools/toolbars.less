@@ -7,7 +7,7 @@
 }
 
 .header {
-    padding: 5px 0 5px 0;
+    padding: @header-padding-top 0 5px 0;
     min-height: @header-height;
     text-align: center;
     width: 100%;
@@ -171,7 +171,7 @@ body.status-bar-overlays-web-view.env-ios {
 
     .header {
         min-height: @header-height + @status-bar-height-ios!important;
-        padding-top: 5px + @status-bar-height-ios!important;
+        padding-top: @header-padding-top + @status-bar-height-ios!important;
 
         .menu-ico, .back-ico {
             top: 5px + @status-bar-height-ios!important;
@@ -179,7 +179,7 @@ body.status-bar-overlays-web-view.env-ios {
 
         &.inline {
             min-height: @header-height!important;
-            padding-top: 5px!important;
+            padding-top: @header-padding-top!important;
         }
 
         &.hidden {
@@ -195,7 +195,7 @@ body.status-bar-overlays-web-view.env-android {
 
     .header {
         min-height: @header-height + @status-bar-height-android!important;
-        padding-top: 5px + @status-bar-height-android!important;
+        padding-top: @header-padding-top + @status-bar-height-android!important;
 
         .menu-ico, .back-ico {
             top: 5px + @status-bar-height-android!important;
@@ -203,7 +203,7 @@ body.status-bar-overlays-web-view.env-android {
 
         &.inline {
             min-height: @header-height!important;
-            padding-top: 5px!important;
+            padding-top: @header-padding-top!important;
         }
 
         &.hidden {
