@@ -83,14 +83,14 @@ body {
     background-position: 0 0;
     -webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
-    background-size: 100% auto;
+    background-size: cover;
 
     .ui-page {
         height: 100%;
         -webkit-overflow-scrolling: touch;
 
         .main-holder {
-            // Всегда растягивать по высоте + ещё немного, чтобы включался scroll (для красоты).
+            // Enables scroll bounce in mobile devices.
             min-height: 101%;
 
             &.has-fixed-header {
@@ -123,11 +123,12 @@ body {
 
     @media (min-width: 35em) {
         &.layout-main {
-            background-position: -15em 0!important;
+            background-position: calc(~"50%" - @menu-width / 2) center;
 
             #main-panel {
                 visibility: visible;
-                width: 15em;
+                background-color: rgba(35, 35, 35, 1);
+                width: @menu-width;
                 transform: none !important;
                 -webkit-transform: none !important;
                 transition: none 0s ease 0s !important;
@@ -135,7 +136,7 @@ body {
             }
 
             .ui-page {
-                padding-right: 15em;
+                width: calc(~"100%" - @menu-width);
             }
 
             .ui-panel-dismiss-display-overlay,
@@ -145,6 +146,10 @@ body {
 
             .menu-ico, .menu-toggle {
                 display: none!important;
+            }
+
+            .ui-loader {
+                left: calc(~"50%" - @menu-width / 2);
             }
         }
     }

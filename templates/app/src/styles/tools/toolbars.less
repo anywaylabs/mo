@@ -146,7 +146,9 @@
         .translate3d(0, 0, 0);
 
         @media (min-width: 35em) {
-            width: calc(~"100% - 15em");
+            body.layout-main & {
+                width: calc(~"100%" - @menu-width);
+            }
         }
 
         &.hidden {
@@ -222,8 +224,8 @@ body.status-bar-overlays-web-view.env-android {
     .translate3d(0, 0, 0);
 
     @media (min-width: 35em) {
-        & {
-            padding-right: 15em;
+        body.layout-main & {
+            width: calc(~"100%" - @menu-width);
         }
     }
 
