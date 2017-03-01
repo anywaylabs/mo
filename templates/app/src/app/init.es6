@@ -1,4 +1,4 @@
-import intro from 'intro.less';
+// Require ASAP.
 import global from 'global.less';
 
 import mo from 'mo/init';
