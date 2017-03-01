@@ -62,7 +62,7 @@ define([
             layout.init();
             (params.connect !== false) && connect.init();
             if (params.media !== false) {
-                media.init()
+                media.init();
                 (params.music !== false) && music.init();
             }
             setupPauseObserver()
