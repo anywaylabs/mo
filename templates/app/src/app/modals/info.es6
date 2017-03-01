@@ -2,12 +2,12 @@ import modal from 'mo/modal';
 
 function show(content) {
     return new Promise((resolve, reject) => {
-        modal.show('{{modalName}}', {
+        modal.show('info', {
             content
         }, {
             // Events go here.
             close: () => {
-                modal.hide('{{modalName}}');
+                modal.hide('info');
                 resolve();
             }
         });
@@ -15,7 +15,7 @@ function show(content) {
 }
 
 function hide() {
-    modal.hide('{{modalName}}');
+    modal.hide('info');
 }
 
 export default {show, hide};

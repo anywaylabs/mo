@@ -1,9 +1,19 @@
 import BaseModalView from 'mo/views/modals/Base';
 import template from './info.hbs';
-import styles from './info.less';
+import './info.less';
 
-module.exports = class extends BaseModalView {
+class Info extends BaseModalView {
     constructor($el) {
         super($el, template);
     }
-};
+    
+    update(state={}) {
+        super.update(state);
+        this._setupListeners()
+    }
+
+    _setupListeners() {
+    }
+}
+
+module.exports = Info;
