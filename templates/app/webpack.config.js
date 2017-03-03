@@ -32,17 +32,15 @@ module.exports = (options = {}) => {
                 mo: 'mo-framework/modules'
             }
         },
+        plugins: [
+            new ExtractTextPlugin("[name].css"),
+            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js'})
+        ],
         output: {
             path: __dirname + '/build',
             publicPath: '',
             filename: 'app.js'
         },
-        plugins: [
-            new ExtractTextPlugin("[name].css"),
-            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js'}),
-            new webpack.HotModuleReplacementPlugin()
-        ],
-
         module: {
             // rules
             loaders: [{
@@ -75,9 +73,15 @@ module.exports = (options = {}) => {
     };
 
     if (options.dev) {
-        webpackConfig.entry.vendor.push('webpack-hot-middleware/client?reload=true');
         webpackConfig.devtool = 'source-map';
+        webpackConfig.entry.vendor.push(
+            'webpack-hot-middleware/client?reload=true'
+        );
+        webpackConfig.plugins.push(
+            new webpack.HotModuleReplacementPlugin()
+        );
         webpackConfig.output.pathinfo = true;
+
     } else if (options.prod) {
         webpackConfig.devtool = false;
         webpackConfig.plugins.push(

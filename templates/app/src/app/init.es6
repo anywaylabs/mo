@@ -1,18 +1,28 @@
 // Require ASAP.
 import 'global.less';
-
-import mo from 'mo/init';
-import auth from 'mo/auth';
 import store from 'mo/store';
-import events from 'mo/events';
 import pages from 'mo/pages';
 import pushNotifications from 'mo/pushNotifications';
 
+import mo from 'mo/init';
+
 mo()
-    // Remove this if you don't need users authentication.
+    .then(() => {
+        store.set('currentUser', {guest: true});
+        pages.change('signIn');
+        pushNotifications.init();
+    });
+
+/*
+// Uncomment and setup this if you do need users authentication.
+
+import auth from 'mo/auth';
+import events from 'mo/events';
+
+mo()
     .then(setupAuth);
 
-function setupAuth () {
+function setupAuth() {
     auth.perform()
         .fail(() => {
             store.set('currentUser', {guest: true})
@@ -21,7 +31,6 @@ function setupAuth () {
 
     events.on({
         'auth:login': () => {
-            pushNotifications.init();
             pages.change('home');
         },
         'auth:logout': () => {
@@ -29,3 +38,4 @@ function setupAuth () {
         }
     });
 }
+*/
