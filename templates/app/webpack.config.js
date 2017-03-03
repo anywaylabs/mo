@@ -63,7 +63,7 @@ module.exports = (options = {}) => {
                 loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
             }, {
                 test: /jquery.mobile-/,
-                loader: 'mo/loaders/context-window'
+                loader: 'mo-framework/loaders/context-window'
             }]
         }
     };
