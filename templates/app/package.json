@@ -25,7 +25,7 @@
     "less-loader": "^2.2.3",
     "less-plugin-glob": "^1.1.1",
     "lodash": "^4.17.2",
-    "mo-framework": "^0.1.0",
+    "mo-framework": "^0.4.3",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
