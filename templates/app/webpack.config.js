@@ -41,8 +41,7 @@ module.exports = (options = {}) => {
             filename: 'app.js'
         },
         module: {
-            // rules
-            loaders: [{
+            rules: [{
                 test: /\.js$/,
                 include: path.resolve(__dirname, 'src/app'),
                 loader: 'babel-loader'
