@@ -13,10 +13,8 @@ module.exports = (options = {}) => {
                 'jquery', 'lodash',
                 'mo/jqm', 'mo/bouncefix',
                 'immutable', 'vow', 'socket.io-client'
-                //, 'handlebars'
             ]
         },
-
         resolve: {
             extensions: ['.js'],
             modules: [
