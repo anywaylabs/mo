@@ -6,7 +6,7 @@ module.exports = (options = {}) => {
     const webpackConfig = {
         entry: {
             app: [
-                './src/app/init.es6',
+                './src/app/init',
                 './src/index.html'
             ],
             vendor: [
@@ -18,8 +18,7 @@ module.exports = (options = {}) => {
         },
 
         resolve: {
-            // TODO Get rid of .es6
-            extensions: ['.js', '.es6'],
+            extensions: ['.js'],
             modules: [
                 'node_modules',
                 'templates',
@@ -44,26 +43,26 @@ module.exports = (options = {}) => {
         module: {
             // rules
             loaders: [{
-                test: /\.es6/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
+                test: /\.js$/,
+                include: path.resolve(__dirname, 'src/app'),
+                loader: 'babel-loader'
             }, {
-                test: /\.hbs/,
+                test: /\.hbs$/,
                 loader: 'handlebars-loader'
             }, {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader!less-loader'})
             }, {
-                test: /\.(jpg|png|svg|gif)/,
+                test: /\.(jpg|png|svg|gif)$/,
                 loader: 'url-loader?limit=50000'
             }, {
-                test: /index\.html/,
+                test: /index\.html$/,
                 loader: 'file-loader?name=index.html'
             }, {
-                test: /\.(eot|ttf|woff|wav|mp3)/,
+                test: /\.(eot|ttf|woff|wav|mp3)$/,
                 loader: 'file-loader'
             }, {
-                test: /\.css/,
+                test: /\.css$/,
                 loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
             }, {
                 test: /jquery.mobile-/,
