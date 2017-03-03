@@ -49,3 +49,4 @@ npm run phonegap
 <img src="docs/images/screenshot2.png" width="400" />
 <img src="docs/images/screenshot3.png" width="400" />
 <img src="docs/images/screenshot1.png" width="400" />
+<img src="docs/images/screenshot4.png" width="400" />
