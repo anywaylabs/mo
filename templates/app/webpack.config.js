@@ -1,14 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
+const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
+const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 module.exports = (options = {}) => {
     const webpackConfig = {
         entry: {
-            app: [
-                './src/app/init',
-                './src/index.html'
-            ],
+            app: ['./src/app/init'],
             vendor: [
                 'jquery', 'lodash',
                 'mo/jqm', 'mo/bouncefix',
@@ -30,8 +30,14 @@ module.exports = (options = {}) => {
             }
         },
         plugins: [
+            new CleanPlugin(['build']),
             new ExtractTextPlugin("[name].css"),
-            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js'})
+            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js'}),
+            new HtmlPlugin({
+                template: __dirname + '/src/index.html',
+                hash: true,
+                inject: 'body'
+            })
         ],
         output: {
             path: __dirname + '/build',
@@ -52,9 +58,6 @@ module.exports = (options = {}) => {
             }, {
                 test: /\.(jpg|png|svg|gif)$/,
                 loader: 'url-loader?limit=50000'
-            }, {
-                test: /index\.html$/,
-                loader: 'file-loader?name=index.html'
             }, {
                 test: /\.(eot|ttf|woff|wav|mp3)$/,
                 loader: 'file-loader'
@@ -86,6 +89,15 @@ module.exports = (options = {}) => {
             }),
             new webpack.optimize.OccurrenceOrderPlugin(),
             new webpack.optimize.UglifyJsPlugin()
+        );
+    }
+
+    if (options.phonegap) {
+        webpackConfig.plugins.push(
+            new HtmlIncludeAssetsPlugin({
+                assets: ['cordova.js'],
+                append: false
+            })
         );
     }
 
