@@ -40,8 +40,6 @@ define([
         setupKeyboard();
 
         $(document).one('pageshow', function () {
-            playSound('intro');
-
             introOut(function () {
                 statusBar.overlaysWebView(true);
                 if (env.supports.statusBarOverlay && !env.android) {

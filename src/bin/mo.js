@@ -21,6 +21,7 @@ program
     .command('serve')
     .alias('s')
     .option('-p, --port [port]', 'express.js port (defaults to 7777)')
+    .allowUnknownOption()
     .description('start dev server (ex. `mo s`)')
     .action((options) => serve({
         source: process.cwd(),

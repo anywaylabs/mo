@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "mo serve",
-    "build": "rm -rf build/ && webpack -p",
+    "build": "rm -rf build/ && webpack --env.prod",
     "phonegap": "cd phonegap/ && phonegap run"
   },
   "author": "",
@@ -15,11 +15,12 @@
     "babel-loader": "^6.2.8",
     "babel-preset-latest": "^6.16.0",
     "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
-    "jquery": "^2.0.3",
     "handlebars": "^2.0.0",
     "handlebars-loader": "^1.4.0",
     "ip": "^1.1.4",
+    "jquery": "^2.0.3",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "less-plugin-glob": "^1.1.1",
@@ -27,9 +28,8 @@
     "mo-framework": "^0.1.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.3",
-    "webpack-hot-middleware": "^2.13.2",
-    "extract-text-webpack-plugin": "^1.0.1"
+    "webpack": "^2.2.1",
+    "webpack-hot-middleware": "^2.13.2"
   },
   "dependencies": {}
 }

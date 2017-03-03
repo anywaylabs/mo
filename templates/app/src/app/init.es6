@@ -1,5 +1,5 @@
 // Require ASAP.
-import global from 'global.less';
+import 'global.less';
 
 import mo from 'mo/init';
 import auth from 'mo/auth';

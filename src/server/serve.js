@@ -1,6 +1,8 @@
 import path from 'path';
 import express from 'express';
+import yargs from 'yargs';
 import webpack from 'webpack';
+import parseConfig from 'webpack/bin/convert-argv';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import ip from 'ip';
@@ -9,7 +11,12 @@ const STAGING_PATH = path.resolve(__dirname, '../../staging/');
 const DEFAULT_PORT = 7777;
 
 export default function ({source, port = DEFAULT_PORT}) {
-    const webpackConfig = require(path.join(source, 'webpack.config.js'));
+    const webpackConfig = parseConfig(yargs, {
+        env: {dev: true},
+        ...yargs.argv,
+        _: '',
+        $0: ''
+    });
     const publicPath = webpackConfig.output.publicPath;
     const publicPathAbsolute = path.join(source, publicPath);
     const compiler = webpack(webpackConfig);
