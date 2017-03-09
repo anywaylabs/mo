@@ -1,5 +1,5 @@
 import Panel from 'mo/views/components/Panel';
-import template from './Menu.hbs';
+import template from './menu.hbs';
 import './menu.less';
 
 class Menu extends Panel {
