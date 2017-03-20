@@ -18,9 +18,8 @@ module.exports = (options = {}) => {
         resolve: {
             extensions: ['.js'],
             modules: [
-                'node_modules',
-                'templates',
                 'styles',
+                'node_modules',
                 // Absolute path is for mo to access user modules.
                 path.resolve(__dirname, 'src/app'),
                 path.resolve(__dirname, 'node_modules')
@@ -72,7 +71,6 @@ module.exports = (options = {}) => {
     };
 
     if (options.dev) {
-        webpackConfig.devtool = 'source-map';
         webpackConfig.entry.vendor.push(
             'webpack-hot-middleware/client?reload=true'
         );
