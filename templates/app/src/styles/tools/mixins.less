@@ -298,8 +298,8 @@
 
 
 // Retina images
-//
-.img-sprite() {
+// img-srite mixin: accepts x and y coordinates (from 0 to 9), and width and height in px
+.img-sprite(@x: 0, @y: 0, @w:32px, @h: 32px) {
     background-image: url('../../img/sprite/all_icons.png');
     background-repeat: no-repeat;
 
@@ -311,8 +311,12 @@
     only screen and (min-resolution: 192dpi),
     only screen and (min-resolution: 1.5dppx) {
         background-image: url('../../img/sprite/all_icons_x2.png')!important;
-        background-size: 320px 350px!important;
+        background-size: 320px 320px!important;
     }
+
+    background-position: -32px*@x -32px*@y !important;
+    width: @w;
+    height: @h;
 }
 
 

@@ -74,31 +74,6 @@
         margin-top: 0;
     }
 
-    &.share {
-        font-size: 14px;
-
-        &:after {
-            content: '';
-            display: inline-block;
-            position: relative;
-            top: 6px;
-            left: 12px;
-            width: 19px;
-            height: 24px;
-            .img-sprite();
-            background-position: -49px -197px;
-        }
-
-        body.hoverable &:hover, &.hover {
-            color: @brand-light-blue;
-            background-color: #424243;
-
-            &:after {
-                background-position: -70px -197px;
-            }
-        }
-    }
-
     &.disabled {
         opacity: 0.5;
         pointer-events: none;
