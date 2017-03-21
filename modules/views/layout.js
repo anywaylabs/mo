@@ -13,8 +13,8 @@ define([
     env, spinner, playSound, statusBar, keyboard,
     layoutTemplate
 ) {
-    var currentLayout = 'blank',
-        currentSkin = 'light',
+    var currentLayout = null,
+        currentSkin = null,
         $body = null,
         pageWithKeyboard = null,
         swipeToBackEnabled = false;
@@ -179,9 +179,7 @@ define([
     }
 
     function introOut (cb) {
-        $body
-            .addClass('layout-' + currentLayout)
-            .removeClass('hidden');
+        $body.removeClass('hidden');
 
         var $intro = $('#intro').addClass('out');
         setTimeout(function () {
@@ -237,7 +235,6 @@ define([
                     .addClass('skin-' + pageSkin);
 
                 currentSkin = pageSkin;
-
             }
         });
     }
