@@ -39,21 +39,16 @@
         cursor: pointer;
 
         &:after {
-            content: "";
-            position: absolute;
-            height: 26px;
-            width: 26px;
-            left: 7px;
-            top: 2px;
-            background: transparent!important;
-            .img-sprite();
-            background-position: -70px -224px!important;
+          content: "";
+          position: absolute;
+          left: 7px;
+          top: 3px;
+          background: transparent;
+          .img-sprite(1, 0, 26px, 26px);
 
-            body.skin-light & {
-                width: 11px;
-                left: 14px;
-                background-position: -213px 2px !important;
-            }
+          body.skin-light & {
+              .img-sprite(2, 0, 26px, 26px);
+          }
         }
     }
 
@@ -73,13 +68,12 @@
             height: 30px;
             width: 28px;
             right: 0;
-            top: 2px;
-            background: transparent!important;
-            .img-sprite();
-            background-position: -197px -251px!important;
+            top: 9px;
+            background: transparent;
+            .img-sprite(4, 0, 28px, 30px);
 
             body.skin-light & {
-                background-position: -230px -251px !important;
+                .img-sprite(5, 0, 28px, 30px);
             }
         }
     }
@@ -117,7 +111,7 @@
         .bar_active {
             a {
                 color: #595959;
-                
+
                 body.hoverable &:hover, &.hover {
                     color: #595959;
                 }
