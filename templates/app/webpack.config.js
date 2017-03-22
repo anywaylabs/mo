@@ -75,7 +75,10 @@ module.exports = (options = {}) => {
             'webpack-hot-middleware/client?reload=true'
         );
         webpackConfig.plugins.push(
-            new webpack.HotModuleReplacementPlugin()
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': 'development'
+            })
         );
         webpackConfig.output.pathinfo = true;
 
