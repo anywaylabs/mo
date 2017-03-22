@@ -4,7 +4,7 @@
   "description": "Hybrid mobile app framework with generators",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "babel src -d build",
+    "build": "babel src -d build",
     "prepublish": "npm run compile"
   },
   "repository": {
