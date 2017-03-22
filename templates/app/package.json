@@ -6,7 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "mo serve",
     "build": "webpack --env.prod",
-    "phonegap": "cd phonegap/ && phonegap run"
+    "phonegap": "cd phonegap/ && phonegap run",
+    "phonegap:emulate": "cd phonegap/ && phonegap emulate",
+    "webapp": "npm run build && rm -rf ./webapp/app && cp -r ./build ./webapp/app"
   },
   "author": "",
   "license": "ISC",

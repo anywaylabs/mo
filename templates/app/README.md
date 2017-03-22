@@ -30,7 +30,11 @@ cd ../
 
 ### Run/emulate with PhoneGap
 ```bash
+# Build
 npm run phonegap
+
+# Run emulators
+npm run phonegap:emulate
 ```
 
 ### Release to iOS

@@ -41,8 +41,11 @@ phonegap platform add ios
 phonegap platform add android
 cd ../
 
-# Run/emulate
+# Build
 npm run phonegap
+
+# Run emulators
+npm run phonegap:emulate
 ```
 
 ### Publishing as web app
