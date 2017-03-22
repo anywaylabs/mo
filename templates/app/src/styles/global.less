@@ -123,6 +123,26 @@ body {
         }
     }
 
+    &:before {
+        background: transparent;
+        content: "";
+        height: 100%;
+        position: fixed;
+        width: 100%;
+        transition: background 300ms ease;
+    }
+
+    &.skin-dark {
+        &:before {
+            background: rgba(48, 48, 48, 0.8);
+        }
+    }
+
+    &.skin-opaque {
+        background-image: none;
+        background-color: #C9C7C8;
+    }
+
     @media (min-width: 35em) {
         &.layout-main {
             background-position: calc(~"50%" - @menu-width / 2) center;
@@ -154,25 +174,6 @@ body {
                 left: calc(~"50%" - @menu-width / 2);
             }
         }
-    }
-
-    &.skin-dark {
-        &:before {
-            background: rgba(48, 48, 48, 0.8);
-            content: "";
-            height: 100%;
-            position: fixed;
-            width: 100%;
-        }
-
-        .ui-page {
-            background: none!important;
-        }
-    }
-
-    &.skin-opaque {
-        background-image: none;
-        background-color: #C9C7C8;
     }
 }
 
