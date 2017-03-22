@@ -10,12 +10,12 @@ export default function (resourceType, params) {
     let resourceName = params.name;
 
     if (!resourceName.match(RESOURCE_NAME_PATTERN)) {
-        throw new Error(`App name should match ${RESOURCE_NAME_PATTERN.toString()}`);
+        throw new Error(`Resource name should match ${RESOURCE_NAME_PATTERN.toString()}`);
     }
-
-    resourceName = _.camelCase(resourceName);
-
+    
     const appPath = path.join(process.cwd(), 'src/app');
+    const templatesPath = path.resolve(__dirname, `../../templates/${resourceType}`);
+
     const ResourceType = _.upperFirst(resourceType);
     const ResourceName = _.upperFirst(resourceName);
     const re = {
@@ -41,8 +41,6 @@ export default function (resourceType, params) {
             });
         }
     };
-
-    const templatesPath = path.resolve(__dirname, `../../templates/${resourceType}`);
 
     return fs.exists(appPath)
         .then((exists) => !exists && Promise.reject('There is no `src/app` folder. Seems we are not in mo project directory.'))

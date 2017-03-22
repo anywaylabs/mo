@@ -2,6 +2,7 @@
 
 import program from 'commander';
 import generate from '../generators';
+import destroy from '../destroyers';
 import serve from '../server/serve';
 import {version} from '../../package.json';
 
@@ -16,6 +17,11 @@ program
     .option('-f, --force', 'overwrite existing folders')
     .description('run specific generator (ex. `mo g page Home`)')
     .action((target, name, options={}) => generate(target, {name, options}));
+
+program
+    .command('destroy [target] [name]')
+    .description('destroy specific targe (ex. `mo destroy page Home`)')
+    .action((target, name, options={}) => destroy(target, {name, options}));
 
 program
     .command('serve')
