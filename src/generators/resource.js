@@ -45,7 +45,7 @@ export default function (resourceType, params) {
     const templatesPath = path.resolve(__dirname, `../../templates/${resourceType}`);
 
     return fs.exists(appPath)
-        .catch((err) => Promise.reject('There is no `src/app` path. Are you sure we\'re in mo app folder?'))
+        .then((exists) => !exists && Promise.reject('There is no `src/app` folder. Seems we are not in mo project directory.'))
         .then(() => copy(templatesPath, appPath, options))
         .catch((err) => Promise.reject(err && err.code == 'EEXIST' ? 'Files exist. Run with `--force` to overwrite.' : err));
 }
