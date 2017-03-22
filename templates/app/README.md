@@ -39,5 +39,11 @@ Open `phonegap/platforms/ios/{{AppName}}.xcodeproj` in Xcode. Archive and upload
 ### Release to Android
 Add keystore to `phonegap/secure/app.keystore`. Run `cd phonegap/ && ./build_android`. Then upload `phonegap/platforms/android/build/outputs/apk/android-release.apk` to Google Play Development Console.
 
+### Release to Web
+```bash
+npm run webapp
+```
+Tune `webapp/index.html` if needed and upload `webapp` folder to your web hosting.
+
 <sub>Get [mo knowledge](https://github.com/anywaylabs/mo) about this mo 🐍 framework</sub>
 

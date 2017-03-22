@@ -1,0 +1,15 @@
+!.keep
+
+# npm dependencies
+node_modules
+
+# Compiled resources:
+build
+phonegap/platforms/**
+phonegap/plugins/**
+phonegap/www/**
+webapp/app
+
+# Service files
+.DS_Store
+npm-debug.log

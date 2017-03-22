@@ -1,8 +1,8 @@
 ## mo 🐍 framework
 
-**Hybrid mobile app framework with generators**
+**Hybrid mobile and web app framework with generators**
 
-Create awesome mobile apps:
+Create awesome mobile and web apps:
 * Using all **ES6+** features
 * With any **view engine** you love
 * Generating **scaffold** stuff
@@ -44,6 +44,12 @@ cd ../
 # Run/emulate
 npm run phonegap
 ```
+
+### Publishing as web app
+```bash
+npm run webapp
+```
+Tune `webapp/index.html` if needed and upload `webapp` folder to your web hosting.
 
 ### Demo screenshots
 <img src="docs/images/screenshot2.png" width="400" />
