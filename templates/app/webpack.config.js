@@ -77,7 +77,7 @@ module.exports = (options = {}) => {
         webpackConfig.plugins.push(
             new webpack.HotModuleReplacementPlugin(),
             new webpack.DefinePlugin({
-                'process.env.NODE_ENV': 'development'
+                'process.env.NODE_ENV': JSON.stringify('development')
             })
         );
         webpackConfig.output.pathinfo = true;
@@ -86,7 +86,7 @@ module.exports = (options = {}) => {
         webpackConfig.devtool = false;
         webpackConfig.plugins.push(
             new webpack.DefinePlugin({
-                'process.env.NODE_ENV': 'production'
+                'process.env.NODE_ENV': JSON.stringify('production')
             }),
             new webpack.optimize.OccurrenceOrderPlugin(),
             new webpack.optimize.UglifyJsPlugin()
