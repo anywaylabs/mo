@@ -5,7 +5,8 @@ import './{{pageName}}.less';
 class {{PageName}} extends BaseView {
     constructor($el) {
         super($el, template);
-        this.update();
+        this.render();
+        this._setupListeners();
     }
 
     update(state={}) {
