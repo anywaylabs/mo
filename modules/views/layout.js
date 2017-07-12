@@ -191,25 +191,43 @@ define([
     }
 
     function setupKeyboard () {
-        keyboard.disableScroll(true);
-        keyboard.hideKeyboardAccessoryBar(true);
+        // When `native.keyboard` plugin installed.
+        if (keyboard) {
+            keyboard.disableScroll(true);
+            keyboard.hideKeyboardAccessoryBar(true);
 
-        window.addEventListener('native.keyboardshow', function (e) {
-            pageWithKeyboard = pages.getCurrent();
-            $('#page-' + pageWithKeyboard).css('padding-bottom', e.keyboardHeight);
-            $('#popup').css('transform', 'translate3d(0, -' + (e.keyboardHeight / 2) + 'px, 0)');
-        });
+            window.addEventListener('native.keyboardshow', function (e) {
+                pageWithKeyboard = pages.getCurrent();
+                $('#page-' + pageWithKeyboard).css('padding-bottom', e.keyboardHeight);
+                $('#popup').css('transform', 'translate3d(0, -' + (e.keyboardHeight / 2) + 'px, 0)');
+            });
 
-        window.addEventListener('native.keyboardhide', function () {
-            $('#page-' + pageWithKeyboard).css('padding-bottom', '');
-            $('#popup').css('transform', '');
-        });
+            window.addEventListener('native.keyboardhide', function () {
+                $('#page-' + pageWithKeyboard).css('padding-bottom', '');
+                $('#popup').css('transform', '');
+            });
 
-        $(document).on('vclick', function (e) {
-            if (!$(e.target).is('input') && !$(e.target).is('textarea') && !$(e.target).is('.btn')) {
-                keyboard.hide();
-            }
-        });
+            $(document).on('vclick', function (e) {
+                if (!$(e.target).is('input') && !$(e.target).is('textarea') && !$(e.target).is('.btn')) {
+                    keyboard.hide();
+                }
+            });
+        // Fix for https://github.com/anywaylabs/mo/issues/20 without `native.keyboard` plugin.
+        } else {
+            var keyboardFieldsSelector = 'input:not([type=checkbox]):not([type=radio]), select, textarea',
+                $toolbars = $('#main-header, #main-footer'),
+                hiddenFixedClassName = 'ui-fixed-hidden';
+
+            $(document).on('focusin focusout', keyboardFieldsSelector, function (e) {
+                if (e.type == 'focusin') {
+                    $toolbars.addClass(hiddenFixedClassName);
+                } else {
+                    setTimeout(() => {
+                        $toolbars.removeClass(hiddenFixedClassName);
+                    }, 1000);
+                }
+            });
+        }
     }
 
     function setupBodyClassObserver () {
