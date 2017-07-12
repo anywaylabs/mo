@@ -79,7 +79,11 @@ define([
 
             this.view = new viewClass(this._$page, template);
             this.view.events.on(_.keys(viewHandlers).join(' '), function (e, data) {
-                viewHandlers[e.type].call(_this, e, data);
+                var result = viewHandlers[e.type].call(_this, e, data);
+
+                if (data && typeof data.release == 'function' && result && typeof result.then == 'function') {
+                    result.then(data.release);
+                }
             });
         },
 
