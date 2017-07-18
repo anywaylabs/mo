@@ -222,7 +222,7 @@ define([
                 if (e.type == 'focusin') {
                     $toolbars.addClass(hiddenFixedClassName);
                 } else {
-                    setTimeout(function {
+                    setTimeout(function () {
                         $toolbars.removeClass(hiddenFixedClassName);
                     }, 1000);
                 }
