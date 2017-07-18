@@ -3,6 +3,8 @@ define([
     'config',
     '../class'
 ], function ($, _, config, classTool) {
+    const EMPTY_FUNCTION = function () {};
+
     return classTool.create(function (name, viewClass, viewHandlers, paramsHandlers) {
         this._name = name;
 
@@ -82,7 +84,7 @@ define([
                 var result = viewHandlers[e.type].call(_this, e, data);
 
                 if (data && typeof data.release == 'function' && result && typeof result.then == 'function') {
-                    result.then(data.release);
+                    result.catch(EMPTY_FUNCTION).then(data.release);
                 }
             });
         },
