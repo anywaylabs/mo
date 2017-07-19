@@ -1,6 +1,10 @@
 define(['./storage', './env'], function (storage, env) {
+    function isPluginSupported() {
+        return env.phonegap && typeof cordova.plugins.Keyboard != 'undefined';
+    }
+
     function exec (action, args) {
-        if (!env.phonegap || typeof cordova.plugins.Keyboard == 'undefined') {
+        if (!isPluginSupported()) {
             return;
         }
 
@@ -14,6 +18,7 @@ define(['./storage', './env'], function (storage, env) {
         hide: function () { exec('close', arguments); },
         close: function () { exec('close', arguments); },
         disableScroll: function () { exec('disableScroll', arguments); },
-        hideKeyboardAccessoryBar: function () { exec('hideKeyboardAccessoryBar', arguments); }
+        hideKeyboardAccessoryBar: function () { exec('hideKeyboardAccessoryBar', arguments); },
+        isPluginSupported
     };
 });
