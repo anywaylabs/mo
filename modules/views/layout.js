@@ -88,7 +88,7 @@ define([
     function applyBouncefix () {
         bouncefix.add('ui-page');
     }
-    
+
     function setupComponents () {
         _.each(componentsContext.keys(), function (key) {
             var componentClass = componentsContext(key);
@@ -192,7 +192,7 @@ define([
 
     function setupKeyboard () {
         // When `native.keyboard` plugin installed.
-        if (keyboard) {
+        if (keyboard.isPluginSupported()) {
             keyboard.disableScroll(true);
             keyboard.hideKeyboardAccessoryBar(true);
 
@@ -246,7 +246,7 @@ define([
 
                 currentLayout = pageLayout;
             }
-            
+
             if (currentSkin != pageSkin) {
                 $body
                     .removeClass('skin-' + currentSkin)
