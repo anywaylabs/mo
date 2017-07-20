@@ -6,6 +6,12 @@
     padding-bottom: @footer-height;
 }
 
+.header, .footer {
+    &.ui-fixed-hidden {
+        position: absolute !important;
+    }
+}
+
 .header {
     padding: @header-padding-top 0 5px 0;
     min-height: @header-height;
