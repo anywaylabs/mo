@@ -113,7 +113,7 @@
 <!-- <plugin name="ionic-plugin-keyboard" spec="~2.2.1" /> -->
 <!-- This version of `cordova-plugin-nativeaudio` does not support iOS hardware mute button. -->
 <!-- https://github.com/floatinghotpot/cordova-plugin-nativeaudio/issues/82 -->
-    <plugin name="cordova-plugin-nativeaudio" spec="~3.0.9">
+    <plugin name="cordova-plugin-nativeaudio" spec="~3.0.9" />
     <plugin name="phonegap-plugin-push" spec="~1.6.4">
         <variable name="SENDER_ID" value="{{GCM_SENDER_ID}}" />
     </plugin>
