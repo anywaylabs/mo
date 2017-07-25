@@ -19,6 +19,6 @@ define(['./storage', './env'], function (storage, env) {
         close: function () { exec('close', arguments); },
         disableScroll: function () { exec('disableScroll', arguments); },
         hideKeyboardAccessoryBar: function () { exec('hideKeyboardAccessoryBar', arguments); },
-        isPluginSupported
+        isPluginSupported: isPluginSupported
     };
 });
