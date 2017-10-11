@@ -6,5 +6,7 @@ module.exports = {
   reload_data_on_page_show: true,
   secure_vclick: true,
   server_url_api: 'http://localhost:3000',
-  slide_page_transition: 'slidefade'
+  slide_page_transition: 'slidefade',
+  default_page_layout: 'main',
+  default_page_skin: 'light'
 };

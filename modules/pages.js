@@ -26,8 +26,8 @@ define([
             $(document.body).append(
                 '<div data-role="page"' +
                 '   id="page-' + name + '"' +
-                '   data-layout="' + (pageClass.LAYOUT || 'main') + '"' +
-                '   data-skin="' + (pageClass.SKIN || 'light') + '"' +
+                '   data-layout="' + (pageClass.LAYOUT || config.default_page_layout) + '"' +
+                '   data-skin="' + (pageClass.SKIN || config.default_page_skin) + '"' +
                 '   data-title="' + (pageClass.TITLE || '') + '"' +
                 '/>'
             );
