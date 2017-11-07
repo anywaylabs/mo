@@ -4,10 +4,10 @@ import _ from 'lodash';
 import copy from 'recursive-copy';
 import through from 'through2';
 
-const RESOURCE_NAME_PATTERN = /[A-Za-z]+/;
+const RESOURCE_NAME_PATTERN = /[a-z][A-Za-z]+/;
 
 export default function (resourceType, params) {
-    let resourceName = params.name;
+    let resourceName = _.lowerFirst(params.name);
 
     if (!resourceName.match(RESOURCE_NAME_PATTERN)) {
         throw new Error(`Resource name should match ${RESOURCE_NAME_PATTERN.toString()}`);
