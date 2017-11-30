@@ -18,7 +18,7 @@ define(['jquery', './class'], function ($, classTool) {
             return this._$el.trigger.apply(this._$el, arguments);
         },
 
-        triggerForAsyncButton: function (eventType, data, $button) {
+        triggerForAsyncButton: function (eventType, data, $button, cb) {
             if (typeof data !== 'object') {
                 throw new Error('Event data must be provided as object');
             }
@@ -28,6 +28,7 @@ define(['jquery', './class'], function ($, classTool) {
             this.trigger(eventType, $.extend({
                 release: function () {
                     $button.removeClass('disabled');
+                    cb && cb();
                 }
             }, data));
         },
