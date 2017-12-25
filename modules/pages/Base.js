@@ -84,7 +84,10 @@ define([
                 var result = viewHandlers[e.type].call(_this, e, data);
 
                 if (data && typeof data.release == 'function' && result && typeof result.then == 'function') {
-                    result.catch(EMPTY_FUNCTION).then(data.release);
+                    result.then(
+                        (result) => data.release(true, result),
+                        (err) => data.release(false, err)
+                    );
                 }
             });
         },

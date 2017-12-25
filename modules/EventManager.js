@@ -26,9 +26,9 @@ define(['jquery', './class'], function ($, classTool) {
             $button.addClass('disabled');
 
             this.trigger(eventType, $.extend({
-                release: function () {
+                release: function (isSuccess, result) {
                     $button.removeClass('disabled');
-                    cb && cb();
+                    cb && cb(isSuccess, result);
                 }
             }, data));
         },
