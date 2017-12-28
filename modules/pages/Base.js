@@ -85,8 +85,8 @@ define([
 
                 if (data && typeof data.release == 'function' && result && typeof result.then == 'function') {
                     result.then(
-                        (result) => data.release(true, result),
-                        (err) => data.release(false, err)
+                        function () { data.release(true); },
+                        function () { data.release(false); }
                     );
                 }
             });
