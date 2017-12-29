@@ -1,5 +1,5 @@
 <section class='menu-doc'>
-    {{#if currentUser.guest}}
+    {{#if __store.currentUser.guest}}
         <a href="#page-signIn">
             <div class="profile-player-box clear">
                 <div class="pic-player avatar current big"></div>
@@ -10,13 +10,13 @@
             </div>
         </a>
     {{else}}
-        <a href="#page-profile" data-params='{ "userId": {{currentUser.id}} }'>
+        <a href="#page-profile" data-params='{ "userId": {{__store.currentUser.id}} }'>
             <div class="profile-player-box clear">
-                <div class="pic-player avatar current big" style="background-image: url({{currentUser.image}});">
+                <div class="pic-player avatar current big" style="background-image: url({{__store.currentUser.image}});">
                 </div>
                 <div class="body-profile">
-                    <p class="name-player">{{currentUser.name}}</p>
-                    <p class="status">{{currentUser.status}}</p>
+                    <p class="name-player">{{__store.currentUser.name}}</p>
+                    <p class="status">{{__store.currentUser.status}}</p>
                 </div>
             </div>
         </a>

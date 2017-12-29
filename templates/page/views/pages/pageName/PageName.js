@@ -9,7 +9,7 @@ class {{PageName}} extends BaseView {
         this._setupListeners();
     }
 
-    update(state={}) {
+    update(state = {}) {
         this.state = state;
         this.render();
         this._setupListeners();
