@@ -3,6 +3,8 @@ define([
     './render',
     '../store', '../class', '../EventManager'
 ], function ($, _, render, store, classTool, EventManager) {
+    var SELF_TOGGLE_TIMEOUT = 300;
+
     return classTool.create(function ($el, template) {
         this.events = new EventManager();
         this.events.trigger('init');
@@ -19,6 +21,8 @@ define([
 
         this._template = template;
 
+        this._selfTransitionKey = null;
+
         if (this.constructor.storeSources) {
             var _this = this;
             store.observe(this.constructor.storeSources, function () {
@@ -32,11 +36,10 @@ define([
             this.render();
         },
 
-        clear: function () {
-            this.state = {};
+        clear: function (action) {
+            this.state = { action: action };
             this.render();
         },
-
 
         /**
          * @protected
@@ -48,8 +51,35 @@ define([
         /**
          * @protected
          */
-        render: function (state) {
-            return this.$el.html(render(this._template, state || this.state || {}))
+        render: function () {
+            var state = this.state || {},
+                selfTransitionKey = state.action,
+                html = render(this._template, state);
+
+            if (typeof selfTransitionKey != 'undefined' && selfTransitionKey !== null) {
+                var $toggles = this.$('> .self-toggle'),
+                    _this = this;
+
+                if ($toggles.length == 2) {
+                    $toggles.eq(1).html(html);
+                } else if (selfTransitionKey === this._selfTransitionKey) {
+                    $toggles.eq(0).html(html);
+                } else {
+                    this.$el.append(`<div class="self-toggle">${html}</div>`);
+
+                    if ($toggles.length) {
+                        setTimeout(function () {
+                            $toggles.eq(0).remove();
+
+                            _this.$el.trigger('rendered');
+                        }, SELF_TOGGLE_TIMEOUT);
+                    }
+                }
+            } else {
+                this.$el.html(html);
+            }
+
+            return this.$el
                 .trigger('rendered')
                 .trigger('sizechange');
         },

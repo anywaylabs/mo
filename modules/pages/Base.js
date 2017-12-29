@@ -3,8 +3,6 @@ define([
     'config',
     '../class'
 ], function ($, _, config, classTool) {
-    const EMPTY_FUNCTION = function () {};
-
     return classTool.create(function (name, viewClass, viewHandlers, paramsHandlers) {
         this._name = name;
 
