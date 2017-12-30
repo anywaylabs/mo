@@ -66,7 +66,7 @@ define([
                 } else if (selfTransitionKey === this._selfTransitionKey) {
                     $toggles.eq(0).html(html);
                 } else {
-                    this.$el.append(`<div class="self-toggle">${html}</div>`);
+                    this.$el.append('<div class="self-toggle">' + html + '</div>');
 
                     if ($toggles.length) {
                         setTimeout(function () {
