@@ -51,9 +51,10 @@ define([
         /**
          * @protected
          */
-        render: function () {
-            var state = this.state || {},
-                selfTransitionKey = state.action,
+        render: function (state) {
+            state || (state = this.state || {});
+
+            var selfTransitionKey = state.action,
                 html = render(this._template, state);
 
             if (typeof selfTransitionKey != 'undefined' && selfTransitionKey !== null) {

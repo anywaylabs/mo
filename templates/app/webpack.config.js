@@ -71,6 +71,7 @@ module.exports = (options = {}) => {
     };
 
     if (options.dev) {
+        webpackConfig.devtool = 'inline-source-map';
         webpackConfig.entry.vendor.push(
             'webpack-hot-middleware/client?reload=true'
         );
