@@ -19,7 +19,7 @@ define([
         pageWithKeyboard = null,
         swipeToBackEnabled = false;
 
-    function init () {
+    function init (options) {
         $body = $(document.body);
 
         setupEnvironment();
@@ -35,10 +35,13 @@ define([
         setupHeaders();
         setupFooters();
         setupTouchEvents();
-        setupSounds();
         setupBodyClassObserver();
         setupKeyboard();
 
+        if (options.soundOnClick !== false) {
+            setupSoundOnClick();
+        }
+        
         $(document).one('pageshow', function () {
             introOut(function () {
                 statusBar.overlaysWebView(true);
@@ -172,7 +175,7 @@ define([
         });
     }
 
-    function setupSounds () {
+    function setupSoundOnClick () {
         $(document).on('vclick', 'a, label, button', function (e) {
             playSound('pk');
         });

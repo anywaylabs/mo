@@ -54,16 +54,25 @@ define([
         });
     }
 
-    return function (params) {
-        params || (params = {});
+    /**
+     * mo initializer
+     *
+     * @param [options.connect=false] {Boolean}
+     * @param [options.media=true] {Boolean}
+     * @param [options.music=true] {Boolean}
+     * @param [options.soundOnClick=true] {Boolean}
+     */
+    return function (options) {
+        options || (options = {});
+
         return ready().then(function () {
             pages.init();
             bindLinks();
-            layout.init();
-            (params.connect !== false) && connect.init();
-            if (params.media !== false) {
+            layout.init(options);
+            (options.connect === true) && connect.init();
+            if (options.media !== false) {
                 media.init();
-                (params.music !== false) && music.init();
+                (options.music !== false) && music.init();
             }
             setupPauseObserver()
         });

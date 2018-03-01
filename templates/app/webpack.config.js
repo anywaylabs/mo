@@ -4,6 +4,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const HtmlIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (options = {}) => {
     const webpackConfig = {
@@ -36,7 +37,8 @@ module.exports = (options = {}) => {
                 template: __dirname + '/src/index.html',
                 hash: true,
                 inject: 'body'
-            })
+            }),
+            new CopyWebpackPlugin([{ from: 'src/music/*.wav', to: 'music', flatten: true }])
         ],
         output: {
             path: __dirname + '/build',
