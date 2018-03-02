@@ -1,3 +1,59 @@
+.default-form {
+    width: 100%;
+
+    label {
+        margin: 2vh 0 0.5vh 1vw;
+        text-shadow: white 0 0 8px;
+        font-size: smaller;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+        &.inline {
+            display: inline-block;
+            margin-top: 0.5vh;
+        }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="tel"],
+    select,
+    .modal-opener {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-color: rgba(0, 0, 0, 0);
+        border-radius: 2px;
+        color: #ffffff;
+        height: 35px;
+        font-size: 1.2em;
+        padding-left: 0.5em;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+    }
+
+    input[type="button"],
+    input[type="submit"] {
+        border: 0;
+        -webkit-appearance: none;
+    }
+
+    .btn {
+        margin-top: @grid-gutter-width;
+        width: 100%;
+    }
+
+    [disabled] {
+        opacity: 0.5;
+    }
+}
+
 .search-form {
     position: relative;
 
@@ -6,6 +62,7 @@
         left: 10px;
         top: 7px;
         display: inline-block;
+        background: transparent;
         .img-sprite(3, 0, 15px, 16px);
     }
 
@@ -18,5 +75,23 @@
         border: 1px solid #d9d9d9;
         -webkit-appearance: none;
         border-radius: 16px;
+    }
+}
+
+// Hidden input style for submitting forms on enter
+.submit-enter {
+    position: absolute;
+    left: -1000px;
+}
+
+.modal-opener {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+        color: #eeeeee!important;
     }
 }
