@@ -7,25 +7,32 @@
 @brand-primary: #8D8D8D;
 @brand-gray: lighten(#000, 33.5%);
 @brand-light-gray: lighten(@brand-gray, 33.5%);
-@brand-light-green: #8EBA26;
-@brand-green: #30A632;
-@brand-light-red: #EB6153;
-@brand-red: #E33536;
+@brand-green: #57b539;
+@brand-light-green: #65d242;
+@brand-gradient-green: linear-gradient(141deg, #56e274 0%, #57b539 51%, #29a433 75%);
+@brand-gradient-light-green: linear-gradient(141deg, #61ff83 0%, #65d242 51%, #30c03c 75%);
+@brand-red: #e31b10;
+@brand-light-red: #f71e11;
 @brand-dark-red: #C7180E;
-@brand-light-blue: #1DB5C5;
-@brand-blue: #2B5EC6;
+@brand-gradient-red: linear-gradient(141deg, #e88800 0%, rgba(246, 98, 52, 0.83) 51%, #ce4f29 75%);
+@brand-gradient-light-red: linear-gradient(141deg, #f79000 0%, rgba(255, 101, 54, 0.83) 51%, #e6582e 75%);
+@brand-blue: #1fc8db;
+@brand-light-blue: #21d3e7;
+@brand-gradient-blue: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2ebef4 75%);
+@brand-gradient-light-blue: linear-gradient(141deg, #10c6ba 0%, #21d3e7 51%, #2fc8ff 75%);
 @brand-aqua: #619AAA;
 @brand-orange: #F5A623;
 @brand-lilac: #A740C9;
 @brand-yellow: #FFFE99;
 @brand-pink: #FFB3B3;
+@dispatch-color: #51D66F;
 
 //== Scaffolding
 //
 // ## Settings for some of the most global styles.
 
 //** Global text color on `<body>`.
-@text-color: @brand-gray;
+@text-color: #333333;
 //** Global textual link color.
 @link-color: @brand-primary;
 //** Link hover color set via `darken()` function.
@@ -103,6 +110,8 @@
 @zindex-navbar-fixed: 1030;
 @zindex-modal-background: 1040;
 @zindex-modal: 1050;
+@zindex-popup: 1100;
+@zindex-locker: 1999;
 
 // Small screen / tablet
 @screen-sm: 768px;
@@ -147,9 +156,9 @@
 @modal-md: 600px;
 @modal-sm: 300px;
 
-@header-height: 44px;
-@footer-height: 44px;
-@header-padding-top: 5px;
+@header-height: 40px;
+@header-padding-top: 0;
 @status-bar-height-ios: 20px;
 @status-bar-height-android: 25px;
+@footer-height: 60px;
 @menu-width: 240px;

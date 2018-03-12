@@ -4,7 +4,7 @@ import BasePage from 'mo/pages/Base';
 module.exports = class extends BasePage {
     constructor(name, viewClass) {
         const viewEvents = {
-            buttonclick: (e, {user}) => popup.show(`Hello, ${user}!`)
+            buttonclick: (e, {user}) => popup.dialog(`Hello, ${user}!`, 'OK', 'Cancel')
         };
 
         super(name, viewClass, viewEvents);
