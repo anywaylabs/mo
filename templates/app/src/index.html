@@ -16,23 +16,23 @@
             });
         };
 
-        function onError (err) {
+        function onError(err) {
             // Hack for #451.
             if ((err.message && err.message.indexOf('StatusBar') != -1) || err.toString().indexOf('StatusBar') != -1) {
                 return true;
             }
 
             if (confirm(
-                            'Something went wrong.\n' +
-                            'Try again?\n\n' +
-                            'Please send us a screenshot of the error. We appreciate your kindness!\n\n' +
-                            dumpError(err))
+                    'Something went wrong.\n' +
+                    'Try again?\n\n' +
+                    'Please send us a screenshot of the error. We appreciate your kindness!\n\n' +
+                    dumpError(err))
             ) {
                 location.reload();
             }
         }
 
-        function dumpError (err) {
+        function dumpError(err) {
             if (typeof err == 'string' || !err) {
                 return err;
             }
@@ -57,6 +57,9 @@
     </script>
 </head>
 <body class="hidden">
-    <div id="intro"><div class="circle"></div><div class="curl"></div></div>
+<div id="intro">
+    <div class="circle"></div>
+    <div class="curl"></div>
+</div>
 </body>
 </html>
