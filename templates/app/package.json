@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "mo serve",
     "build": "webpack",
-    "phonegap:prepare": "cd ./phonegap && phonegap prepare",
-    "phonegap:emulate": "cd ./phonegap && phonegap emulate",
+    "emulate:ios": "cd ./phonegap && phonegap emulate ios",
+    "emulate:android": "cd ./phonegap && phonegap emulate android",
     "webapp": "rm -rf ./webapp/app && cp -r ./build ./webapp/app && rm ./webapp/app/index-cordova.html"
   },
   "author": "",
@@ -31,7 +31,7 @@
     "less-loader": "^2.2.3",
     "less-plugin-glob": "^1.1.1",
     "lodash": "^4.17.2",
-    "mo-framework": "^0.6.1",
+    "mo-framework": "^0.6.3",
     "style-loader": "^0.20.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.7.0",
