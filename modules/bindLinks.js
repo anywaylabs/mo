@@ -39,8 +39,9 @@ define([
         $(document).on('vclick', BIND_SELECTOR, function (e) {
             var $this = $(this);
 
-            // Ссылки с target отбрабатываются напрямую.
-            if ($this.attr('target')) {
+            // Links with `target` are processed directly.
+            // Inputs ignore manual events triggering, so we don't handle them anymore.
+            if ($this.attr('target') || $(e.target).is('input, textarea')) {
                 return;
             }
 
