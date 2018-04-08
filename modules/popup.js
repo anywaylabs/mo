@@ -1,6 +1,9 @@
 define([
     'lodash', 'vow', './views/components/Popup', './vibrate', './playSound'
 ], function (_, vow, View, vibrate, playSound) {
+    var DEFAULT_HIDE_TIMEOUT = 3000,
+        ERROR_HIDE_TIMEOUT = 7000;
+
     var view = null,
         sequence = [],
         isShown = false,
@@ -104,7 +107,7 @@ define([
         }
 
         if (typeof params.hideTimeout == 'undefined') {
-            params.hideTimeout = 2000;
+            params.hideTimeout = params.type == 'fail' ? ERROR_HIDE_TIMEOUT : DEFAULT_HIDE_TIMEOUT;
         }
 
         if (!params.pickerType) {
