@@ -1,8 +1,9 @@
 define([
     'jquery',
     '../Base',
-    '../../class'
-], function ($, BaseView, classTool) {
+    '../../class',
+    '../../requestAnimationFrame'
+], function ($, BaseView, classTool, rAF) {
     var TRANSITION_DURATION = 250;
 
     return classTool.create(function ($el, template) {
@@ -16,7 +17,7 @@ define([
             var $el = this.$el;
 
             $el.show();
-            setTimeout(function () { $el.addClass('in'); }, 30);
+            rAF.setup(function () { $el.addClass('in'); });
         },
 
         clear: function () {
@@ -25,7 +26,7 @@ define([
 
             var $el = this.$el;
 
-            $el.removeClass('in');
+            rAF.setup(function () { $el.removeClass('in'); });
 
             setTimeout(function () {
                 if (!$el.hasClass('in')) {
