@@ -128,6 +128,16 @@ define([
             $el.data('touched', false);
         });
 
+        /*
+        ** Fix for form input lag on some devices
+        */
+        $(document).on('focus', '.form-group input, .form-group textarea', (e) => {
+            $(e.currentTarget).parent('label').addClass('focused');
+        });
+        $(document).on('blur', '.form-group input, .form-group textarea', (e) => {
+            $(e.currentTarget).parent('label').removeClass('focused');
+        });
+
         function hover ($el) {
             $el.addClass('hover');
             $el.data('hover', true);

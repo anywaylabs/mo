@@ -2,9 +2,13 @@
     width: 100%;
 
     label {
-        margin: 2vh 0 0.5vh 1vw;
         text-shadow: white 0 0 8px;
-        font-size: smaller;
+        font-size: 13px;
+        line-height: 19px;
+
+        &:not(.form-group) {
+            margin: 2vh 0 0.5vh 1vw;
+        }
 
         &:first-of-type {
             margin-top: 0;
@@ -13,11 +17,6 @@
         &.inline {
             display: inline-block;
             margin-top: 0.5vh;
-        }
-
-        &.required::after {
-            content: ' *';
-            color: red;
         }
     }
 
@@ -38,7 +37,7 @@
         border-radius: 2px;
         color: #ffffff;
         height: 35px;
-        font-size: 1.2em;
+        font-size: 19.2px;
         padding-left: 0.5em;
         box-sizing: border-box;
         -webkit-appearance: none;
@@ -104,4 +103,64 @@
     &:hover {
         color: #eeeeee!important;
     }
+}
+
+.form-group {
+  position: relative;
+
+  &:not(:first-of-type) {
+    margin-top: 2vh;
+  }
+
+  .error:not(label):not([type="radio"]) {
+    box-shadow: 0px 0px 5px 0px red;
+  }
+
+  span {
+      display: block;
+      margin: 2vh 0 0.5vh 1vw;
+      text-shadow: white 0 0 8px;
+      font-size: 13px;
+      line-height: 19px;
+
+      &:first-of-type {
+          margin-top: 0;
+      }
+
+      &.required::after {
+          content: ' *';
+          color: red;
+      }
+  }
+
+  /* Fix for radio not reacting to fastclick on iOS */
+  label > input[type="radio"] {
+    pointer-events: none;
+  }
+
+  label.error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    color: darkred;
+    font-size: 13px;
+    line-height: 19px;
+
+    .form-inverse & {
+      color: red;
+      text-shadow: black 0 0 8px;
+    }
+  }
+
+  &.validation-bottom label.error {
+    top: auto;
+    bottom: 0;
+  }
+
+  &:not(.focused) {
+    > input, > textarea, > span {
+      pointer-events: none;
+    }
+  }
 }
