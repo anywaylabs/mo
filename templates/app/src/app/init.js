@@ -1,5 +1,6 @@
 // Require ASAP.
 import 'global.less';
+import $ from 'jquery';
 import store from 'mo/store';
 import pages from 'mo/pages';
 import pushNotifications from 'mo/pushNotifications';
@@ -12,6 +13,16 @@ mo()
         pages.change('signIn');
         pushNotifications.init();
     });
+
+/*
+** Fix for form input lag on some devices
+*/
+$(document).on('focus', '.form-group input, .form-group textarea', (e) => {
+    $(e.currentTarget).parent('label').addClass('focused');
+});
+$(document).on('blur', '.form-group input, .form-group textarea', (e) => {
+    $(e.currentTarget).parent('label').removeClass('focused');
+});
 
 /*
 // Uncomment and setup this if you do need users authentication.
