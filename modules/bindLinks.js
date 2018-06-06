@@ -131,10 +131,10 @@ define([
         /*
         ** Fix for form input lag on some devices
         */
-        $(document).on('focus', '.form-group input, .form-group textarea', (e) => {
+        $(document).on('focus', '.form-group input, .form-group textarea', function (e) {
             $(e.currentTarget).parent('label').addClass('focused');
         });
-        $(document).on('blur', '.form-group input, .form-group textarea', (e) => {
+        $(document).on('blur', '.form-group input, .form-group textarea', function (e) {
             $(e.currentTarget).parent('label').removeClass('focused');
         });
 
