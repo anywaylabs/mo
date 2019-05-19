@@ -12,7 +12,7 @@ define({
 
     set: function (key, value) {
         if (typeof localStorage == 'undefined') {
-            alert('Сохранение информации недоступно в вашем браузере.');
+            alert('Local Storage is not available in your browser');
             return;
         }
 
