@@ -3,11 +3,11 @@ define([
     './events',
     './analytics/yametrika'
 ], function (_, globalEvents, analyticsSdk) {
-    function init (currentUser) {
-        analyticsSdk.init && analyticsSdk.init(currentUser.getAnalyticsParams());
+    function init (getAnalyticsParams) {
+        analyticsSdk.init && analyticsSdk.init(getAnalyticsParams());
 
         globalEvents.on('auth:login auth:logout', function () {
-            setParams(currentUser.getAnalyticsParams());
+            setParams(getAnalyticsParams());
         });
     }
 
