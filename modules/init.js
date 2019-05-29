@@ -2,7 +2,7 @@ define([
     'config',
     'jquery', './jqm', 'vow',
     './connect', './pages', './events', './music', './views/layout',
-    './bindLinks',  './env', './media', './analytics'
+    './bindLinks', './env', './media', './analytics'
 ], function (
     config,
     $, $mobile, vow,
@@ -69,12 +69,16 @@ define([
             pages.init();
             bindLinks();
             layout.init(options);
-            (options.connect === true) && connect.init();
+            if (options.connect === true) {
+                connect.init();
+            }
             if (options.media !== false) {
                 media.init();
-                (options.music !== false) && music.init();
+                if (options.music !== false) {
+                    music.init();
+                }
             }
-            if (options.analytics !== false) {
+            if (options.analytics) {
                 analytics.init(options.analytics);
             }
             setupPauseObserver()
