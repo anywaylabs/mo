@@ -1,19 +1,22 @@
 define([
-    'lodash'
-], function (_) {
-    var COUNTER_ID = 26664282;
-
+    'lodash',
+    'config'
+], function (_, config) {
     var counter,
         visitParams;
 
     function init (params) {
         visitParams = params;
         
+        if (!config.counter_id) {
+            throw new Error('Counter ID must be provided in the config to setup analytics');
+        }
+        
         (function (d, w, c) {
             (w[c] = w[c] || []).push(function() {
                 try {
-                    counter = w['yaCounter' + COUNTER_ID] = new Ya.Metrika({
-                        id:COUNTER_ID,
+                    counter = w['yaCounter' + config.counter_id] = new Ya.Metrika({
+                        id:config.counter_id,
                         clickmap:true,
                         trackLinks:true,
                         accurateTrackBounce:true,
