@@ -1,6 +1,6 @@
 {
   "name": "mo-framework",
-  "version": "0.6.9",
+  "version": "0.6.10",
   "description": "Hybrid mobile app framework with generators",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
