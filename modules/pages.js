@@ -73,7 +73,7 @@ define([
         }
 
         analytics.hit(url, {
-            title: getTitle(name),
+            title: getTitle(name) || name,
             referrer: getCurrentUrl()
         });
 
