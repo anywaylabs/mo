@@ -1,7 +1,7 @@
 define([
     'lodash',
     './events',
-    './analytics/yametrika'
+    './analytics/mock'
 ], function (_, globalEvents, analyticsSdk) {
     function init (getAnalyticsParams) {
         analyticsSdk.init && analyticsSdk.init(getAnalyticsParams());
