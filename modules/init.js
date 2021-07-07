@@ -2,12 +2,12 @@ define([
     'config',
     'jquery', './jqm', 'vow',
     './connect', './pages', './events', './music', './views/layout',
-    './bindLinks', './env', './media', './analytics'
+    './bindLinks', './env', './media',
 ], function (
     config,
     $, $mobile, vow,
     connect, pages, events, music, layout,
-    bindLinks, env, media, analytics
+    bindLinks, env, media,
 ) {
     if (config.debug) {
         vow.debug = true;
@@ -77,9 +77,6 @@ define([
                 if (options.music !== false) {
                     music.init();
                 }
-            }
-            if (options.analytics) {
-                analytics.init(options.analytics);
             }
             setupPauseObserver()
         });
